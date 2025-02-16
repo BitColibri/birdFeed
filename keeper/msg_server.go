@@ -21,6 +21,100 @@ func NewMsgServerImpl(keeper Keeper) birdFeed.MsgServer {
 	return &msgServer{keeper}
 }
 
+func (s msgServer) InitUser(ctx context.Context, msg *birdFeed.MsgInitUser) (*birdFeed.MsgInitUserResponse, error) {
+	hasUser, err := s.Users.Has(ctx, msg.Address)
+	if err != nil {
+		return nil, err
+	}
+	if hasUser {
+		return nil, fmt.Errorf("user %s already exists", msg.Address)
+	}
+
+	user := birdFeed.User{
+		Address: msg.Address,
+		Alias:   msg.Alias,
+		Picture: msg.Picture,
+	}
+
+	if err := s.Users.Set(ctx, msg.Address, user); err != nil {
+		return nil, err
+	}
+
+	return &birdFeed.MsgInitUserResponse{}, nil
+}
+
+func (s msgServer) FollowUser(ctx context.Context, msg *birdFeed.MsgFollowUser) (*birdFeed.MsgFollowUserResponse, error) {
+	from, err := s.Users.Get(ctx, msg.From)
+	if err != nil {
+		return nil, err
+	}
+
+	to, err := s.Users.Get(ctx, msg.To)
+	if err != nil {
+		return nil, err
+	}
+
+	if from.Address == to.Address {
+		return nil, fmt.Errorf("you cannot follow yourself")
+	}
+
+	followingKey := collections.Join(from.Address, to.Address)
+	if err = s.Follows.Set(ctx, followingKey); err != nil {
+		return nil, err
+	}
+
+	followerKey := collections.Join(to.Address, from.Address)
+	if err = s.Followers.Set(ctx, followerKey); err != nil {
+		return nil, err
+	}
+
+	to.Followers++
+	if err := s.Users.Set(ctx, to.Address, to); err != nil {
+		return nil, err
+	}
+
+	from.Follows++
+	if err := s.Users.Set(ctx, from.Address, from); err != nil {
+		return nil, err
+	}
+
+	return &birdFeed.MsgFollowUserResponse{}, nil
+}
+
+func (s msgServer) UnfollowUser(ctx context.Context, msg *birdFeed.MsgUnfollowUser) (*birdFeed.MsgUnfollowUserResponse, error) {
+	followingKey := collections.Join(msg.From, msg.To)
+	if err := s.Followers.Remove(ctx, followingKey); err != nil {
+		return nil, err
+	}
+
+	followerKey := collections.Join(msg.To, msg.From)
+	if err := s.Follows.Remove(ctx, followerKey); err != nil {
+		return nil, err
+	}
+
+	from, err := s.Users.Get(ctx, msg.From)
+	if err != nil {
+		return nil, err
+	}
+
+	from.Follows--
+	if err := s.Users.Set(ctx, from.Address, from); err != nil {
+		return nil, err
+	}
+
+	to, err := s.Users.Get(ctx, msg.To)
+	if err != nil {
+		return nil, err
+	}
+
+	to.Followers--
+	if err := s.Users.Set(ctx, to.Address, to); err != nil {
+		return nil, err
+	}
+
+	return &birdFeed.MsgUnfollowUserResponse{}, nil
+}
+
 func (s msgServer) PublishTweet(ctx context.Context, msg *birdFeed.MsgPublishTweet) (*birdFeed.MsgPublishTweetResponse, error) {
 	timeStamp := time.Now().UnixNano()
 	tweetID := fmt.Sprintf("%x", sha256.Sum256([]byte(fmt.Sprintf("%s:%s:%d", msg.Author, msg.Content, timeStamp))))
@@ -43,6 +137,41 @@ func (s msgServer) PublishTweet(ctx context.Context, msg *birdFeed.MsgPublishTwe
 	}
 
 	return &birdFeed.MsgPublishTweetResponse{}, nil
+}
+
+func (s msgServer) RemoveTweet(ctx context.Context, msg *birdFeed.MsgRemoveTweet) (*birdFeed.MsgRemoveTweetResponse, error) {
+	tweet, err := s.Tweets.Get(ctx, msg.TweetID)
+	if err != nil {
+		if errors.Is(err, collections.ErrNotFound) {
+			return nil, fmt.Errorf("tweet %s does not exist", msg.TweetID)
+		}
+		return nil, err
+	}
+
+	if tweet.Author != msg.Author {
+		return nil, fmt.Errorf("you are not the author of this tweet")
+	}
+
+	if err := s.Tweets.Remove(ctx, msg.TweetID); err != nil {
+		return nil, err
+	}
+
+	if err := s.AuthorTweets.Remove(ctx, collections.Join(tweet.Author, msg.TweetID)); err != nil {
+		return nil, err
+	}
+
+	likesRange := collections.NewPrefixedPairRange[string, string](msg.TweetID)
+	err = s.Likes.Walk(ctx, likesRange, func(key collections.Pair[string, string], value bool) (stop bool, err error) {
+		if err := s.Likes.Remove(ctx, key); err != nil {
+			return false, err
+		}
+		return false, nil
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return &birdFeed.MsgRemoveTweetResponse{}, nil
 }
 
 func (s msgServer) LikeTweet(ctx context.Context, msg *birdFeed.MsgLikeTweet) (*birdFeed.MsgLikeTweetResponse, error) {

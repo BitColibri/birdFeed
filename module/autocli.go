@@ -35,6 +35,30 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 						{ProtoField: "id"},
 					},
 				},
+				{
+					RpcMethod: "GetUser",
+					Use:       "user",
+					Short:     "Get user by address",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "address"},
+					},
+				},
+				{
+					RpcMethod: "GetUserFollowers",
+					Use:       "followers",
+					Short:     "Get all followers of a user",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "address"},
+					},
+				},
+				{
+					RpcMethod: "GetUserFollows",
+					Use:       "follows",
+					Short:     "Get all follows of a user",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "address"},
+					},
+				},
 			},
 		},
 		Tx: &autocliv1.ServiceCommandDescriptor{
@@ -47,6 +71,39 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
 						{ProtoField: "content"},
 						{ProtoField: "hashtags"},
+					},
+				},
+				{
+					RpcMethod: "InitUser",
+					Use:       "init-user",
+					Short:     "Initialize a new user",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "alias"},
+						{ProtoField: "picture"},
+					},
+				},
+				{
+					RpcMethod: "FollowUser",
+					Use:       "follow",
+					Short:     "Follow a user",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "to"},
+					},
+				},
+				{
+					RpcMethod: "UnfollowUser",
+					Use:       "unfollow",
+					Short:     "Unfollow a user",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "to"},
+					},
+				},
+				{
+					RpcMethod: "RemoveTweet",
+					Use:       "remove-tweet",
+					Short:     "Remove a tweet",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "tweetID"},
 					},
 				},
 				{

@@ -23,6 +23,21 @@ service Query {
     option (cosmos.query.v1.module_query_safe) = true;
     option (google.api.http).get = "/bitcolibri/birdFeed/v1/tweet/{id}/likes";
   }
+
+  rpc GetUser(QueryGetUserRequest) returns (QueryGetUserResponse) {
+    option (cosmos.query.v1.module_query_safe) = true;
+    option (google.api.http).get = "/bitcolibri/birdFeed/v1/user/{address}";
+  }
+
+  rpc GetUserFollowers(QueryGetUserFollowersRequest) returns (QueryGetUserFollowersResponse) {
+    option (cosmos.query.v1.module_query_safe) = true;
+    option (google.api.http).get = "/bitcolibri/birdFeed/v1/user/{address}/followers";
+  }
+
+  rpc GetUserFollows(QueryGetUserFollowsRequest) returns (QueryGetUserFollowsResponse) {
+    option (cosmos.query.v1.module_query_safe) = true;
+    option (google.api.http).get = "/bitcolibri/birdFeed/v1/user/{address}/follows";
+  }
 }
 
 message QueryGetTweetRequest {
@@ -48,4 +63,28 @@ message QueryGetTweetLikesRequest {
 
 message QueryGetTweetLikesResponse {
   repeated string likes = 1;
+}
+
+message QueryGetUserRequest {
+  string address = 1;
+}
+
+message QueryGetUserResponse {
+  User user = 1;
+}
+
+message QueryGetUserFollowersRequest {
+  string address = 1;
+}
+
+message QueryGetUserFollowersResponse {
+  repeated string followers = 1;
+}
+
+message QueryGetUserFollowsRequest {
+  string address = 1;
+}
+
+message QueryGetUserFollowsResponse {
+  repeated string follows = 1;
 }

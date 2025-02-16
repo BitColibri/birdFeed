@@ -10,8 +10,16 @@ option go_package = "github.com/bitcolibri/birdFeed";
 service Msg {
   option (cosmos.msg.v1.service) = true;
 
+  rpc InitUser(MsgInitUser) returns (MsgInitUserResponse);
+
+  rpc FollowUser(MsgFollowUser) returns (MsgFollowUserResponse);
+
+  rpc UnfollowUser(MsgUnfollowUser) returns (MsgUnfollowUserResponse);
+
   // CreateGame create a game.
   rpc PublishTweet(MsgPublishTweet) returns (MsgPublishTweetResponse);
+
+  rpc RemoveTweet(MsgRemoveTweet) returns (MsgRemoveTweetResponse);
 
   rpc LikeTweet(MsgLikeTweet) returns (MsgLikeTweetResponse);
 
@@ -19,6 +27,34 @@ service Msg {
 
   rpc CommentTweet(MsgCommentTweet) returns (MsgCommentTweetResponse);
 }
+
+message MsgInitUser {
+  option (cosmos.msg.v1.signer) = "address";
+
+  string address = 1;
+  string alias = 2;
+  string picture = 3;
+}
+
+message MsgInitUserResponse {}
+
+message MsgFollowUser {
+  option (cosmos.msg.v1.signer) = "from";
+
+  string from = 1;
+  string to = 2;
+}
+
+message MsgFollowUserResponse {}
+
+message MsgUnfollowUser {
+  option (cosmos.msg.v1.signer) = "from";
+
+  string from = 1;
+  string to = 2;
+}
+
+message MsgUnfollowUserResponse {}
 
 message MsgPublishTweet {
   option (cosmos.msg.v1.signer) = "author";
@@ -32,6 +68,14 @@ message MsgPublishTweet {
 // MsgCreateGameResponse defines the Msg/CreateGame response type.
 message MsgPublishTweetResponse {}
 
+message MsgRemoveTweet {
+  option (cosmos.msg.v1.signer) = "author";
+
+  string author = 1;
+  string tweetID = 2;
+}
+
+message MsgRemoveTweetResponse {}
 message MsgLikeTweet {
   option (cosmos.msg.v1.signer) = "from";
 

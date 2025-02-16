@@ -13,9 +13,22 @@ message Params {}
 message GenesisState {
   // params defines all the parameters of the module.
   Params params = 1 [(gogoproto.nullable) = false];
-  repeated IndexedTweet indexedTweets = 2 [(gogoproto.nullable) = false];
-  repeated IndexedLike indexedLikes = 3  [(gogoproto.nullable) = false];
-  repeated IndexedComment indexedComments = 4 [(gogoproto.nullable) = false];
+  repeated IndexedUser indexedUsers = 2 [(gogoproto.nullable) = false];
+  repeated IndexedFollow indexedFollows = 3 [(gogoproto.nullable) = false];
+  repeated IndexedFollow indexedFollowers = 4 [(gogoproto.nullable) = false];
+  repeated IndexedTweet indexedTweets = 5 [(gogoproto.nullable) = false];
+  repeated IndexedLike indexedLikes = 6 [(gogoproto.nullable) = false];
+  repeated IndexedComment indexedComments = 7 [(gogoproto.nullable) = false];
+}
+
+message IndexedUser {
+  string index = 1;
+  User user = 2;
+}
+
+message IndexedFollow {
+  string k1 = 1;
+  string k2 = 2;
 }
 
 message IndexedTweet {
@@ -44,4 +57,12 @@ message Tweet {
   int64 likes = 5;
   int64 responses = 6;
   string parentId = 7;
+}
+
+message User {
+  string address = 1;
+  string alias = 2;
+  string picture = 3;
+  uint64 followers = 4;
+  uint64 follows = 5;
 }

@@ -2822,6 +2822,2661 @@ func (x *fastReflection_QueryGetTweetLikesResponse) ProtoMethods() *protoiface.M
 	}
 }
 
+var (
+	md_QueryGetUserRequest         protoreflect.MessageDescriptor
+	fd_QueryGetUserRequest_address protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_bitcolibri_birdFeed_v1_query_proto_init()
+	md_QueryGetUserRequest = File_bitcolibri_birdFeed_v1_query_proto.Messages().ByName("QueryGetUserRequest")
+	fd_QueryGetUserRequest_address = md_QueryGetUserRequest.Fields().ByName("address")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetUserRequest)(nil)
+
+type fastReflection_QueryGetUserRequest QueryGetUserRequest
+
+func (x *QueryGetUserRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetUserRequest)(x)
+}
+
+func (x *QueryGetUserRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetUserRequest_messageType fastReflection_QueryGetUserRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetUserRequest_messageType{}
+
+type fastReflection_QueryGetUserRequest_messageType struct{}
+
+func (x fastReflection_QueryGetUserRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetUserRequest)(nil)
+}
+func (x fastReflection_QueryGetUserRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserRequest)
+}
+func (x fastReflection_QueryGetUserRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetUserRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetUserRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetUserRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetUserRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetUserRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetUserRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetUserRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_QueryGetUserRequest_address, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetUserRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserRequest.address":
+		return x.Address != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserRequest.address":
+		x.Address = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetUserRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserRequest.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserRequest.address":
+		x.Address = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserRequest.address":
+		panic(fmt.Errorf("field address of message bitcolibri.birdFeed.v1.QueryGetUserRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetUserRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserRequest.address":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetUserRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in bitcolibri.birdFeed.v1.QueryGetUserRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetUserRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetUserRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetUserRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetUserRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Address)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Address) > 0 {
+			i -= len(x.Address)
+			copy(dAtA[i:], x.Address)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Address = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryGetUserResponse      protoreflect.MessageDescriptor
+	fd_QueryGetUserResponse_user protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_bitcolibri_birdFeed_v1_query_proto_init()
+	md_QueryGetUserResponse = File_bitcolibri_birdFeed_v1_query_proto.Messages().ByName("QueryGetUserResponse")
+	fd_QueryGetUserResponse_user = md_QueryGetUserResponse.Fields().ByName("user")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetUserResponse)(nil)
+
+type fastReflection_QueryGetUserResponse QueryGetUserResponse
+
+func (x *QueryGetUserResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetUserResponse)(x)
+}
+
+func (x *QueryGetUserResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetUserResponse_messageType fastReflection_QueryGetUserResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetUserResponse_messageType{}
+
+type fastReflection_QueryGetUserResponse_messageType struct{}
+
+func (x fastReflection_QueryGetUserResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetUserResponse)(nil)
+}
+func (x fastReflection_QueryGetUserResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserResponse)
+}
+func (x fastReflection_QueryGetUserResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetUserResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetUserResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetUserResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetUserResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetUserResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetUserResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetUserResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.User != nil {
+		value := protoreflect.ValueOfMessage(x.User.ProtoReflect())
+		if !f(fd_QueryGetUserResponse_user, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetUserResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserResponse.user":
+		return x.User != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserResponse.user":
+		x.User = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetUserResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserResponse.user":
+		value := x.User
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserResponse.user":
+		x.User = value.Message().Interface().(*User)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserResponse.user":
+		if x.User == nil {
+			x.User = new(User)
+		}
+		return protoreflect.ValueOfMessage(x.User.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetUserResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserResponse.user":
+		m := new(User)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetUserResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in bitcolibri.birdFeed.v1.QueryGetUserResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetUserResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetUserResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetUserResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetUserResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.User != nil {
+			l = options.Size(x.User)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.User != nil {
+			encoded, err := options.Marshal(x.User)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field User", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.User == nil {
+					x.User = &User{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.User); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryGetUserFollowersRequest         protoreflect.MessageDescriptor
+	fd_QueryGetUserFollowersRequest_address protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_bitcolibri_birdFeed_v1_query_proto_init()
+	md_QueryGetUserFollowersRequest = File_bitcolibri_birdFeed_v1_query_proto.Messages().ByName("QueryGetUserFollowersRequest")
+	fd_QueryGetUserFollowersRequest_address = md_QueryGetUserFollowersRequest.Fields().ByName("address")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetUserFollowersRequest)(nil)
+
+type fastReflection_QueryGetUserFollowersRequest QueryGetUserFollowersRequest
+
+func (x *QueryGetUserFollowersRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetUserFollowersRequest)(x)
+}
+
+func (x *QueryGetUserFollowersRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetUserFollowersRequest_messageType fastReflection_QueryGetUserFollowersRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetUserFollowersRequest_messageType{}
+
+type fastReflection_QueryGetUserFollowersRequest_messageType struct{}
+
+func (x fastReflection_QueryGetUserFollowersRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetUserFollowersRequest)(nil)
+}
+func (x fastReflection_QueryGetUserFollowersRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserFollowersRequest)
+}
+func (x fastReflection_QueryGetUserFollowersRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserFollowersRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetUserFollowersRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserFollowersRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetUserFollowersRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetUserFollowersRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetUserFollowersRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserFollowersRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetUserFollowersRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetUserFollowersRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetUserFollowersRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_QueryGetUserFollowersRequest_address, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetUserFollowersRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest.address":
+		return x.Address != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowersRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest.address":
+		x.Address = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetUserFollowersRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowersRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest.address":
+		x.Address = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowersRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest.address":
+		panic(fmt.Errorf("field address of message bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetUserFollowersRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest.address":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetUserFollowersRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetUserFollowersRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowersRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetUserFollowersRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetUserFollowersRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetUserFollowersRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Address)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserFollowersRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Address) > 0 {
+			i -= len(x.Address)
+			copy(dAtA[i:], x.Address)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserFollowersRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserFollowersRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserFollowersRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Address = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_QueryGetUserFollowersResponse_1_list)(nil)
+
+type _QueryGetUserFollowersResponse_1_list struct {
+	list *[]string
+}
+
+func (x *_QueryGetUserFollowersResponse_1_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_QueryGetUserFollowersResponse_1_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfString((*x.list)[i])
+}
+
+func (x *_QueryGetUserFollowersResponse_1_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_QueryGetUserFollowersResponse_1_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_QueryGetUserFollowersResponse_1_list) AppendMutable() protoreflect.Value {
+	panic(fmt.Errorf("AppendMutable can not be called on message QueryGetUserFollowersResponse at list field Followers as it is not of Message kind"))
+}
+
+func (x *_QueryGetUserFollowersResponse_1_list) Truncate(n int) {
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_QueryGetUserFollowersResponse_1_list) NewElement() protoreflect.Value {
+	v := ""
+	return protoreflect.ValueOfString(v)
+}
+
+func (x *_QueryGetUserFollowersResponse_1_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_QueryGetUserFollowersResponse           protoreflect.MessageDescriptor
+	fd_QueryGetUserFollowersResponse_followers protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_bitcolibri_birdFeed_v1_query_proto_init()
+	md_QueryGetUserFollowersResponse = File_bitcolibri_birdFeed_v1_query_proto.Messages().ByName("QueryGetUserFollowersResponse")
+	fd_QueryGetUserFollowersResponse_followers = md_QueryGetUserFollowersResponse.Fields().ByName("followers")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetUserFollowersResponse)(nil)
+
+type fastReflection_QueryGetUserFollowersResponse QueryGetUserFollowersResponse
+
+func (x *QueryGetUserFollowersResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetUserFollowersResponse)(x)
+}
+
+func (x *QueryGetUserFollowersResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetUserFollowersResponse_messageType fastReflection_QueryGetUserFollowersResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetUserFollowersResponse_messageType{}
+
+type fastReflection_QueryGetUserFollowersResponse_messageType struct{}
+
+func (x fastReflection_QueryGetUserFollowersResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetUserFollowersResponse)(nil)
+}
+func (x fastReflection_QueryGetUserFollowersResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserFollowersResponse)
+}
+func (x fastReflection_QueryGetUserFollowersResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserFollowersResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetUserFollowersResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserFollowersResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetUserFollowersResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetUserFollowersResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetUserFollowersResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserFollowersResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetUserFollowersResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetUserFollowersResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetUserFollowersResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if len(x.Followers) != 0 {
+		value := protoreflect.ValueOfList(&_QueryGetUserFollowersResponse_1_list{list: &x.Followers})
+		if !f(fd_QueryGetUserFollowersResponse_followers, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetUserFollowersResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse.followers":
+		return len(x.Followers) != 0
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowersResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse.followers":
+		x.Followers = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetUserFollowersResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse.followers":
+		if len(x.Followers) == 0 {
+			return protoreflect.ValueOfList(&_QueryGetUserFollowersResponse_1_list{})
+		}
+		listValue := &_QueryGetUserFollowersResponse_1_list{list: &x.Followers}
+		return protoreflect.ValueOfList(listValue)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowersResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse.followers":
+		lv := value.List()
+		clv := lv.(*_QueryGetUserFollowersResponse_1_list)
+		x.Followers = *clv.list
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowersResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse.followers":
+		if x.Followers == nil {
+			x.Followers = []string{}
+		}
+		value := &_QueryGetUserFollowersResponse_1_list{list: &x.Followers}
+		return protoreflect.ValueOfList(value)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetUserFollowersResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse.followers":
+		list := []string{}
+		return protoreflect.ValueOfList(&_QueryGetUserFollowersResponse_1_list{list: &list})
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetUserFollowersResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetUserFollowersResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowersResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetUserFollowersResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetUserFollowersResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetUserFollowersResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if len(x.Followers) > 0 {
+			for _, s := range x.Followers {
+				l = len(s)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserFollowersResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Followers) > 0 {
+			for iNdEx := len(x.Followers) - 1; iNdEx >= 0; iNdEx-- {
+				i -= len(x.Followers[iNdEx])
+				copy(dAtA[i:], x.Followers[iNdEx])
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Followers[iNdEx])))
+				i--
+				dAtA[i] = 0xa
+			}
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserFollowersResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserFollowersResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserFollowersResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Followers", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Followers = append(x.Followers, string(dAtA[iNdEx:postIndex]))
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryGetUserFollowsRequest         protoreflect.MessageDescriptor
+	fd_QueryGetUserFollowsRequest_address protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_bitcolibri_birdFeed_v1_query_proto_init()
+	md_QueryGetUserFollowsRequest = File_bitcolibri_birdFeed_v1_query_proto.Messages().ByName("QueryGetUserFollowsRequest")
+	fd_QueryGetUserFollowsRequest_address = md_QueryGetUserFollowsRequest.Fields().ByName("address")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetUserFollowsRequest)(nil)
+
+type fastReflection_QueryGetUserFollowsRequest QueryGetUserFollowsRequest
+
+func (x *QueryGetUserFollowsRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetUserFollowsRequest)(x)
+}
+
+func (x *QueryGetUserFollowsRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetUserFollowsRequest_messageType fastReflection_QueryGetUserFollowsRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetUserFollowsRequest_messageType{}
+
+type fastReflection_QueryGetUserFollowsRequest_messageType struct{}
+
+func (x fastReflection_QueryGetUserFollowsRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetUserFollowsRequest)(nil)
+}
+func (x fastReflection_QueryGetUserFollowsRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserFollowsRequest)
+}
+func (x fastReflection_QueryGetUserFollowsRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserFollowsRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetUserFollowsRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserFollowsRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetUserFollowsRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetUserFollowsRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetUserFollowsRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserFollowsRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetUserFollowsRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetUserFollowsRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetUserFollowsRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Address != "" {
+		value := protoreflect.ValueOfString(x.Address)
+		if !f(fd_QueryGetUserFollowsRequest_address, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetUserFollowsRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest.address":
+		return x.Address != ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowsRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest.address":
+		x.Address = ""
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetUserFollowsRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest.address":
+		value := x.Address
+		return protoreflect.ValueOfString(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowsRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest.address":
+		x.Address = value.Interface().(string)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowsRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest.address":
+		panic(fmt.Errorf("field address of message bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetUserFollowsRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest.address":
+		return protoreflect.ValueOfString("")
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetUserFollowsRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetUserFollowsRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowsRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetUserFollowsRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetUserFollowsRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetUserFollowsRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		l = len(x.Address)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserFollowsRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Address) > 0 {
+			i -= len(x.Address)
+			copy(dAtA[i:], x.Address)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Address)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserFollowsRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserFollowsRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserFollowsRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Address = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_QueryGetUserFollowsResponse_1_list)(nil)
+
+type _QueryGetUserFollowsResponse_1_list struct {
+	list *[]string
+}
+
+func (x *_QueryGetUserFollowsResponse_1_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_QueryGetUserFollowsResponse_1_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfString((*x.list)[i])
+}
+
+func (x *_QueryGetUserFollowsResponse_1_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_QueryGetUserFollowsResponse_1_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.String()
+	concreteValue := valueUnwrapped
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_QueryGetUserFollowsResponse_1_list) AppendMutable() protoreflect.Value {
+	panic(fmt.Errorf("AppendMutable can not be called on message QueryGetUserFollowsResponse at list field Follows as it is not of Message kind"))
+}
+
+func (x *_QueryGetUserFollowsResponse_1_list) Truncate(n int) {
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_QueryGetUserFollowsResponse_1_list) NewElement() protoreflect.Value {
+	v := ""
+	return protoreflect.ValueOfString(v)
+}
+
+func (x *_QueryGetUserFollowsResponse_1_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_QueryGetUserFollowsResponse         protoreflect.MessageDescriptor
+	fd_QueryGetUserFollowsResponse_follows protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_bitcolibri_birdFeed_v1_query_proto_init()
+	md_QueryGetUserFollowsResponse = File_bitcolibri_birdFeed_v1_query_proto.Messages().ByName("QueryGetUserFollowsResponse")
+	fd_QueryGetUserFollowsResponse_follows = md_QueryGetUserFollowsResponse.Fields().ByName("follows")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetUserFollowsResponse)(nil)
+
+type fastReflection_QueryGetUserFollowsResponse QueryGetUserFollowsResponse
+
+func (x *QueryGetUserFollowsResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetUserFollowsResponse)(x)
+}
+
+func (x *QueryGetUserFollowsResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetUserFollowsResponse_messageType fastReflection_QueryGetUserFollowsResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetUserFollowsResponse_messageType{}
+
+type fastReflection_QueryGetUserFollowsResponse_messageType struct{}
+
+func (x fastReflection_QueryGetUserFollowsResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetUserFollowsResponse)(nil)
+}
+func (x fastReflection_QueryGetUserFollowsResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserFollowsResponse)
+}
+func (x fastReflection_QueryGetUserFollowsResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserFollowsResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetUserFollowsResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetUserFollowsResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetUserFollowsResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetUserFollowsResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetUserFollowsResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryGetUserFollowsResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetUserFollowsResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetUserFollowsResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetUserFollowsResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if len(x.Follows) != 0 {
+		value := protoreflect.ValueOfList(&_QueryGetUserFollowsResponse_1_list{list: &x.Follows})
+		if !f(fd_QueryGetUserFollowsResponse_follows, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetUserFollowsResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse.follows":
+		return len(x.Follows) != 0
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowsResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse.follows":
+		x.Follows = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetUserFollowsResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse.follows":
+		if len(x.Follows) == 0 {
+			return protoreflect.ValueOfList(&_QueryGetUserFollowsResponse_1_list{})
+		}
+		listValue := &_QueryGetUserFollowsResponse_1_list{list: &x.Follows}
+		return protoreflect.ValueOfList(listValue)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowsResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse.follows":
+		lv := value.List()
+		clv := lv.(*_QueryGetUserFollowsResponse_1_list)
+		x.Follows = *clv.list
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowsResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse.follows":
+		if x.Follows == nil {
+			x.Follows = []string{}
+		}
+		value := &_QueryGetUserFollowsResponse_1_list{list: &x.Follows}
+		return protoreflect.ValueOfList(value)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetUserFollowsResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse.follows":
+		list := []string{}
+		return protoreflect.ValueOfList(&_QueryGetUserFollowsResponse_1_list{list: &list})
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse"))
+		}
+		panic(fmt.Errorf("message bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetUserFollowsResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetUserFollowsResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetUserFollowsResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetUserFollowsResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetUserFollowsResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetUserFollowsResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if len(x.Follows) > 0 {
+			for _, s := range x.Follows {
+				l = len(s)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserFollowsResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Follows) > 0 {
+			for iNdEx := len(x.Follows) - 1; iNdEx >= 0; iNdEx-- {
+				i -= len(x.Follows[iNdEx])
+				copy(dAtA[i:], x.Follows[iNdEx])
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Follows[iNdEx])))
+				i--
+				dAtA[i] = 0xa
+			}
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetUserFollowsResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserFollowsResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetUserFollowsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Follows", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Follows = append(x.Follows, string(dAtA[iNdEx:postIndex]))
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Code generated by protoc-gen-go. DO NOT EDIT.
 // versions:
 // 	protoc-gen-go v1.27.0
@@ -3053,6 +5708,216 @@ func (x *QueryGetTweetLikesResponse) GetLikes() []string {
 	return nil
 }
 
+type QueryGetUserRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (x *QueryGetUserRequest) Reset() {
+	*x = QueryGetUserRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetUserRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetUserRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryGetUserRequest.ProtoReflect.Descriptor instead.
+func (*QueryGetUserRequest) Descriptor() ([]byte, []int) {
+	return file_bitcolibri_birdFeed_v1_query_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *QueryGetUserRequest) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+type QueryGetUserResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (x *QueryGetUserResponse) Reset() {
+	*x = QueryGetUserResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetUserResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetUserResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryGetUserResponse.ProtoReflect.Descriptor instead.
+func (*QueryGetUserResponse) Descriptor() ([]byte, []int) {
+	return file_bitcolibri_birdFeed_v1_query_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *QueryGetUserResponse) GetUser() *User {
+	if x != nil {
+		return x.User
+	}
+	return nil
+}
+
+type QueryGetUserFollowersRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (x *QueryGetUserFollowersRequest) Reset() {
+	*x = QueryGetUserFollowersRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetUserFollowersRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetUserFollowersRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryGetUserFollowersRequest.ProtoReflect.Descriptor instead.
+func (*QueryGetUserFollowersRequest) Descriptor() ([]byte, []int) {
+	return file_bitcolibri_birdFeed_v1_query_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *QueryGetUserFollowersRequest) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+type QueryGetUserFollowersResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Followers []string `protobuf:"bytes,1,rep,name=followers,proto3" json:"followers,omitempty"`
+}
+
+func (x *QueryGetUserFollowersResponse) Reset() {
+	*x = QueryGetUserFollowersResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetUserFollowersResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetUserFollowersResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryGetUserFollowersResponse.ProtoReflect.Descriptor instead.
+func (*QueryGetUserFollowersResponse) Descriptor() ([]byte, []int) {
+	return file_bitcolibri_birdFeed_v1_query_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *QueryGetUserFollowersResponse) GetFollowers() []string {
+	if x != nil {
+		return x.Followers
+	}
+	return nil
+}
+
+type QueryGetUserFollowsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (x *QueryGetUserFollowsRequest) Reset() {
+	*x = QueryGetUserFollowsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetUserFollowsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetUserFollowsRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryGetUserFollowsRequest.ProtoReflect.Descriptor instead.
+func (*QueryGetUserFollowsRequest) Descriptor() ([]byte, []int) {
+	return file_bitcolibri_birdFeed_v1_query_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *QueryGetUserFollowsRequest) GetAddress() string {
+	if x != nil {
+		return x.Address
+	}
+	return ""
+}
+
+type QueryGetUserFollowsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Follows []string `protobuf:"bytes,1,rep,name=follows,proto3" json:"follows,omitempty"`
+}
+
+func (x *QueryGetUserFollowsResponse) Reset() {
+	*x = QueryGetUserFollowsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_bitcolibri_birdFeed_v1_query_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetUserFollowsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetUserFollowsResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryGetUserFollowsResponse.ProtoReflect.Descriptor instead.
+func (*QueryGetUserFollowsResponse) Descriptor() ([]byte, []int) {
+	return file_bitcolibri_birdFeed_v1_query_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *QueryGetUserFollowsResponse) GetFollows() []string {
+	if x != nil {
+		return x.Follows
+	}
+	return nil
+}
+
 var File_bitcolibri_birdFeed_v1_query_proto protoreflect.FileDescriptor
 
 var file_bitcolibri_birdFeed_v1_query_proto_rawDesc = []byte{
@@ -3093,55 +5958,111 @@ var file_bitcolibri_birdFeed_v1_query_proto_rawDesc = []byte{
 	0x0a, 0x1a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65, 0x74, 0x4c,
 	0x69, 0x6b, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x14, 0x0a, 0x05,
 	0x6c, 0x69, 0x6b, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x05, 0x6c, 0x69, 0x6b,
-	0x65, 0x73, 0x32, 0x8e, 0x04, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x98, 0x01, 0x0a,
-	0x08, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65, 0x74, 0x12, 0x2c, 0x2e, 0x62, 0x69, 0x74, 0x63,
+	0x65, 0x73, 0x22, 0x2f, 0x0a, 0x13, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x55, 0x73,
+	0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64,
+	0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72,
+	0x65, 0x73, 0x73, 0x22, 0x48, 0x0a, 0x14, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x55,
+	0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x04, 0x75,
+	0x73, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1c, 0x2e, 0x62, 0x69, 0x74, 0x63,
 	0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e,
-	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65, 0x74,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2d, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c,
-	0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76, 0x31,
-	0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65, 0x74, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2f, 0x88, 0xe7, 0xb0, 0x2a, 0x01, 0x82, 0xd3, 0xe4,
-	0x93, 0x02, 0x24, 0x12, 0x22, 0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69,
-	0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x74, 0x77, 0x65,
-	0x65, 0x74, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x12, 0xb9, 0x01, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x41,
-	0x75, 0x74, 0x68, 0x6f, 0x72, 0x54, 0x77, 0x65, 0x65, 0x74, 0x73, 0x12, 0x33, 0x2e, 0x62, 0x69,
-	0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65,
-	0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x41, 0x75, 0x74,
-	0x68, 0x6f, 0x72, 0x54, 0x77, 0x65, 0x65, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x34, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69,
+	0x76, 0x31, 0x2e, 0x55, 0x73, 0x65, 0x72, 0x52, 0x04, 0x75, 0x73, 0x65, 0x72, 0x22, 0x38, 0x0a,
+	0x1c, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x46, 0x6f, 0x6c,
+	0x6c, 0x6f, 0x77, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a,
+	0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07,
+	0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x3d, 0x0a, 0x1d, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x65, 0x72, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x66, 0x6f, 0x6c, 0x6c,
+	0x6f, 0x77, 0x65, 0x72, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x09, 0x66, 0x6f, 0x6c,
+	0x6c, 0x6f, 0x77, 0x65, 0x72, 0x73, 0x22, 0x36, 0x0a, 0x1a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47,
+	0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x73, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x18, 0x0a, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x22, 0x37,
+	0x0a, 0x1b, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x46, 0x6f,
+	0x6c, 0x6c, 0x6f, 0x77, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a,
+	0x07, 0x66, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07,
+	0x66, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x73, 0x32, 0xa4, 0x08, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x12, 0x98, 0x01, 0x0a, 0x08, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65, 0x74, 0x12, 0x2c,
+	0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64,
+	0x46, 0x65, 0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74,
+	0x54, 0x77, 0x65, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2d, 0x2e, 0x62,
+	0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65,
+	0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x54, 0x77,
+	0x65, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2f, 0x88, 0xe7, 0xb0,
+	0x2a, 0x01, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x24, 0x12, 0x22, 0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f,
+	0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2f, 0x76,
+	0x31, 0x2f, 0x74, 0x77, 0x65, 0x65, 0x74, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x12, 0xb9, 0x01, 0x0a,
+	0x0f, 0x47, 0x65, 0x74, 0x41, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x54, 0x77, 0x65, 0x65, 0x74, 0x73,
+	0x12, 0x33, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69,
 	0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47,
 	0x65, 0x74, 0x41, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x54, 0x77, 0x65, 0x65, 0x74, 0x73, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3b, 0x88, 0xe7, 0xb0, 0x2a, 0x01, 0x82, 0xd3, 0xe4,
-	0x93, 0x02, 0x30, 0x12, 0x2e, 0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69,
-	0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x61, 0x75, 0x74,
-	0x68, 0x6f, 0x72, 0x2f, 0x7b, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x7d, 0x2f, 0x74, 0x77, 0x65,
-	0x65, 0x74, 0x73, 0x12, 0xad, 0x01, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65, 0x74,
-	0x4c, 0x69, 0x6b, 0x65, 0x73, 0x12, 0x31, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x34, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62,
 	0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51,
-	0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65, 0x74, 0x4c, 0x69, 0x6b, 0x65,
-	0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x32, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f,
-	0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76,
-	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65, 0x74, 0x4c,
-	0x69, 0x6b, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x35, 0x88, 0xe7,
-	0xb0, 0x2a, 0x01, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2a, 0x12, 0x28, 0x2f, 0x62, 0x69, 0x74, 0x63,
-	0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2f,
-	0x76, 0x31, 0x2f, 0x74, 0x77, 0x65, 0x65, 0x74, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x2f, 0x6c, 0x69,
-	0x6b, 0x65, 0x73, 0x42, 0xe8, 0x01, 0x0a, 0x1a, 0x63, 0x6f, 0x6d, 0x2e, 0x62, 0x69, 0x74, 0x63,
+	0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x41, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x54, 0x77, 0x65,
+	0x65, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3b, 0x88, 0xe7, 0xb0,
+	0x2a, 0x01, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x30, 0x12, 0x2e, 0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f,
+	0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2f, 0x76,
+	0x31, 0x2f, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x2f, 0x7b, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72,
+	0x7d, 0x2f, 0x74, 0x77, 0x65, 0x65, 0x74, 0x73, 0x12, 0xad, 0x01, 0x0a, 0x0d, 0x47, 0x65, 0x74,
+	0x54, 0x77, 0x65, 0x65, 0x74, 0x4c, 0x69, 0x6b, 0x65, 0x73, 0x12, 0x31, 0x2e, 0x62, 0x69, 0x74,
+	0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64,
+	0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x54, 0x77, 0x65, 0x65,
+	0x74, 0x4c, 0x69, 0x6b, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x32, 0x2e,
+	0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46,
+	0x65, 0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x54,
+	0x77, 0x65, 0x65, 0x74, 0x4c, 0x69, 0x6b, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x35, 0x88, 0xe7, 0xb0, 0x2a, 0x01, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2a, 0x12, 0x28,
+	0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64,
+	0x46, 0x65, 0x65, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x74, 0x77, 0x65, 0x65, 0x74, 0x2f, 0x7b, 0x69,
+	0x64, 0x7d, 0x2f, 0x6c, 0x69, 0x6b, 0x65, 0x73, 0x12, 0x99, 0x01, 0x0a, 0x07, 0x47, 0x65, 0x74,
+	0x55, 0x73, 0x65, 0x72, 0x12, 0x2b, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72,
+	0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75,
+	0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x2c, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62,
+	0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x33, 0x88, 0xe7, 0xb0, 0x2a, 0x01, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x28, 0x12, 0x26, 0x2f, 0x62,
+	0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65,
+	0x65, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x2f, 0x7b, 0x61, 0x64, 0x64, 0x72,
+	0x65, 0x73, 0x73, 0x7d, 0x12, 0xbe, 0x01, 0x0a, 0x10, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72,
+	0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x65, 0x72, 0x73, 0x12, 0x34, 0x2e, 0x62, 0x69, 0x74, 0x63,
 	0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e,
-	0x76, 0x31, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01,
-	0x5a, 0x44, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x62, 0x69, 0x74,
-	0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64,
-	0x2f, 0x61, 0x70, 0x69, 0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f,
-	0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2f, 0x76, 0x31, 0x3b, 0x62, 0x69, 0x72, 0x64,
-	0x46, 0x65, 0x65, 0x64, 0x76, 0x31, 0xa2, 0x02, 0x03, 0x42, 0x42, 0x58, 0xaa, 0x02, 0x16, 0x42,
-	0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x42, 0x69, 0x72, 0x64, 0x46, 0x65,
-	0x65, 0x64, 0x2e, 0x56, 0x31, 0xca, 0x02, 0x16, 0x42, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62,
-	0x72, 0x69, 0x5c, 0x42, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x5c, 0x56, 0x31, 0xe2, 0x02,
-	0x22, 0x42, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x5c, 0x42, 0x69, 0x72, 0x64,
-	0x46, 0x65, 0x65, 0x64, 0x5c, 0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64,
-	0x61, 0x74, 0x61, 0xea, 0x02, 0x18, 0x42, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69,
-	0x3a, 0x3a, 0x42, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x46,
+	0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x65, 0x72, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x35, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72,
+	0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65,
+	0x74, 0x55, 0x73, 0x65, 0x72, 0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x65, 0x72, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x3d, 0x88, 0xe7, 0xb0, 0x2a, 0x01, 0x82, 0xd3, 0xe4,
+	0x93, 0x02, 0x32, 0x12, 0x30, 0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69,
+	0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x75, 0x73, 0x65,
+	0x72, 0x2f, 0x7b, 0x61, 0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x7d, 0x2f, 0x66, 0x6f, 0x6c, 0x6c,
+	0x6f, 0x77, 0x65, 0x72, 0x73, 0x12, 0xb6, 0x01, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65,
+	0x72, 0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x73, 0x12, 0x32, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f,
+	0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76,
+	0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x46, 0x6f,
+	0x6c, 0x6c, 0x6f, 0x77, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x33, 0x2e, 0x62,
+	0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65,
+	0x65, 0x64, 0x2e, 0x76, 0x31, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x55, 0x73,
+	0x65, 0x72, 0x46, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x3b, 0x88, 0xe7, 0xb0, 0x2a, 0x01, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x30, 0x12, 0x2e,
+	0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64,
+	0x46, 0x65, 0x65, 0x64, 0x2f, 0x76, 0x31, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x2f, 0x7b, 0x61, 0x64,
+	0x64, 0x72, 0x65, 0x73, 0x73, 0x7d, 0x2f, 0x66, 0x6f, 0x6c, 0x6c, 0x6f, 0x77, 0x73, 0x42, 0xe8,
+	0x01, 0x0a, 0x1a, 0x63, 0x6f, 0x6d, 0x2e, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72,
+	0x69, 0x2e, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x76, 0x31, 0x42, 0x0a, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x44, 0x67, 0x69, 0x74,
+	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62,
+	0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2f, 0x61, 0x70, 0x69, 0x2f,
+	0x62, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x2f, 0x62, 0x69, 0x72, 0x64, 0x46,
+	0x65, 0x65, 0x64, 0x2f, 0x76, 0x31, 0x3b, 0x62, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x76,
+	0x31, 0xa2, 0x02, 0x03, 0x42, 0x42, 0x58, 0xaa, 0x02, 0x16, 0x42, 0x69, 0x74, 0x63, 0x6f, 0x6c,
+	0x69, 0x62, 0x72, 0x69, 0x2e, 0x42, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x2e, 0x56, 0x31,
+	0xca, 0x02, 0x16, 0x42, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x5c, 0x42, 0x69,
+	0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x5c, 0x56, 0x31, 0xe2, 0x02, 0x22, 0x42, 0x69, 0x74, 0x63,
+	0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x5c, 0x42, 0x69, 0x72, 0x64, 0x46, 0x65, 0x65, 0x64, 0x5c,
+	0x56, 0x31, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02,
+	0x18, 0x42, 0x69, 0x74, 0x63, 0x6f, 0x6c, 0x69, 0x62, 0x72, 0x69, 0x3a, 0x3a, 0x42, 0x69, 0x72,
+	0x64, 0x46, 0x65, 0x65, 0x64, 0x3a, 0x3a, 0x56, 0x31, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x33,
 }
 
 var (
@@ -3156,31 +6077,45 @@ func file_bitcolibri_birdFeed_v1_query_proto_rawDescGZIP() []byte {
 	return file_bitcolibri_birdFeed_v1_query_proto_rawDescData
 }
 
-var file_bitcolibri_birdFeed_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_bitcolibri_birdFeed_v1_query_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_bitcolibri_birdFeed_v1_query_proto_goTypes = []interface{}{
-	(*QueryGetTweetRequest)(nil),         // 0: bitcolibri.birdFeed.v1.QueryGetTweetRequest
-	(*QueryGetTweetResponse)(nil),        // 1: bitcolibri.birdFeed.v1.QueryGetTweetResponse
-	(*QueryGetAuthorTweetsRequest)(nil),  // 2: bitcolibri.birdFeed.v1.QueryGetAuthorTweetsRequest
-	(*QueryGetAuthorTweetsResponse)(nil), // 3: bitcolibri.birdFeed.v1.QueryGetAuthorTweetsResponse
-	(*QueryGetTweetLikesRequest)(nil),    // 4: bitcolibri.birdFeed.v1.QueryGetTweetLikesRequest
-	(*QueryGetTweetLikesResponse)(nil),   // 5: bitcolibri.birdFeed.v1.QueryGetTweetLikesResponse
-	(*Tweet)(nil),                        // 6: bitcolibri.birdFeed.v1.Tweet
+	(*QueryGetTweetRequest)(nil),          // 0: bitcolibri.birdFeed.v1.QueryGetTweetRequest
+	(*QueryGetTweetResponse)(nil),         // 1: bitcolibri.birdFeed.v1.QueryGetTweetResponse
+	(*QueryGetAuthorTweetsRequest)(nil),   // 2: bitcolibri.birdFeed.v1.QueryGetAuthorTweetsRequest
+	(*QueryGetAuthorTweetsResponse)(nil),  // 3: bitcolibri.birdFeed.v1.QueryGetAuthorTweetsResponse
+	(*QueryGetTweetLikesRequest)(nil),     // 4: bitcolibri.birdFeed.v1.QueryGetTweetLikesRequest
+	(*QueryGetTweetLikesResponse)(nil),    // 5: bitcolibri.birdFeed.v1.QueryGetTweetLikesResponse
+	(*QueryGetUserRequest)(nil),           // 6: bitcolibri.birdFeed.v1.QueryGetUserRequest
+	(*QueryGetUserResponse)(nil),          // 7: bitcolibri.birdFeed.v1.QueryGetUserResponse
+	(*QueryGetUserFollowersRequest)(nil),  // 8: bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest
+	(*QueryGetUserFollowersResponse)(nil), // 9: bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse
+	(*QueryGetUserFollowsRequest)(nil),    // 10: bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest
+	(*QueryGetUserFollowsResponse)(nil),   // 11: bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse
+	(*Tweet)(nil),                         // 12: bitcolibri.birdFeed.v1.Tweet
+	(*User)(nil),                          // 13: bitcolibri.birdFeed.v1.User
 }
 var file_bitcolibri_birdFeed_v1_query_proto_depIdxs = []int32{
-	6, // 0: bitcolibri.birdFeed.v1.QueryGetTweetResponse.tweet:type_name -> bitcolibri.birdFeed.v1.Tweet
-	6, // 1: bitcolibri.birdFeed.v1.QueryGetTweetResponse.comments:type_name -> bitcolibri.birdFeed.v1.Tweet
-	6, // 2: bitcolibri.birdFeed.v1.QueryGetAuthorTweetsResponse.tweets:type_name -> bitcolibri.birdFeed.v1.Tweet
-	0, // 3: bitcolibri.birdFeed.v1.Query.GetTweet:input_type -> bitcolibri.birdFeed.v1.QueryGetTweetRequest
-	2, // 4: bitcolibri.birdFeed.v1.Query.GetAuthorTweets:input_type -> bitcolibri.birdFeed.v1.QueryGetAuthorTweetsRequest
-	4, // 5: bitcolibri.birdFeed.v1.Query.GetTweetLikes:input_type -> bitcolibri.birdFeed.v1.QueryGetTweetLikesRequest
-	1, // 6: bitcolibri.birdFeed.v1.Query.GetTweet:output_type -> bitcolibri.birdFeed.v1.QueryGetTweetResponse
-	3, // 7: bitcolibri.birdFeed.v1.Query.GetAuthorTweets:output_type -> bitcolibri.birdFeed.v1.QueryGetAuthorTweetsResponse
-	5, // 8: bitcolibri.birdFeed.v1.Query.GetTweetLikes:output_type -> bitcolibri.birdFeed.v1.QueryGetTweetLikesResponse
-	6, // [6:9] is the sub-list for method output_type
-	3, // [3:6] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	12, // 0: bitcolibri.birdFeed.v1.QueryGetTweetResponse.tweet:type_name -> bitcolibri.birdFeed.v1.Tweet
+	12, // 1: bitcolibri.birdFeed.v1.QueryGetTweetResponse.comments:type_name -> bitcolibri.birdFeed.v1.Tweet
+	12, // 2: bitcolibri.birdFeed.v1.QueryGetAuthorTweetsResponse.tweets:type_name -> bitcolibri.birdFeed.v1.Tweet
+	13, // 3: bitcolibri.birdFeed.v1.QueryGetUserResponse.user:type_name -> bitcolibri.birdFeed.v1.User
+	0,  // 4: bitcolibri.birdFeed.v1.Query.GetTweet:input_type -> bitcolibri.birdFeed.v1.QueryGetTweetRequest
+	2,  // 5: bitcolibri.birdFeed.v1.Query.GetAuthorTweets:input_type -> bitcolibri.birdFeed.v1.QueryGetAuthorTweetsRequest
+	4,  // 6: bitcolibri.birdFeed.v1.Query.GetTweetLikes:input_type -> bitcolibri.birdFeed.v1.QueryGetTweetLikesRequest
+	6,  // 7: bitcolibri.birdFeed.v1.Query.GetUser:input_type -> bitcolibri.birdFeed.v1.QueryGetUserRequest
+	8,  // 8: bitcolibri.birdFeed.v1.Query.GetUserFollowers:input_type -> bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest
+	10, // 9: bitcolibri.birdFeed.v1.Query.GetUserFollows:input_type -> bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest
+	1,  // 10: bitcolibri.birdFeed.v1.Query.GetTweet:output_type -> bitcolibri.birdFeed.v1.QueryGetTweetResponse
+	3,  // 11: bitcolibri.birdFeed.v1.Query.GetAuthorTweets:output_type -> bitcolibri.birdFeed.v1.QueryGetAuthorTweetsResponse
+	5,  // 12: bitcolibri.birdFeed.v1.Query.GetTweetLikes:output_type -> bitcolibri.birdFeed.v1.QueryGetTweetLikesResponse
+	7,  // 13: bitcolibri.birdFeed.v1.Query.GetUser:output_type -> bitcolibri.birdFeed.v1.QueryGetUserResponse
+	9,  // 14: bitcolibri.birdFeed.v1.Query.GetUserFollowers:output_type -> bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse
+	11, // 15: bitcolibri.birdFeed.v1.Query.GetUserFollows:output_type -> bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse
+	10, // [10:16] is the sub-list for method output_type
+	4,  // [4:10] is the sub-list for method input_type
+	4,  // [4:4] is the sub-list for extension type_name
+	4,  // [4:4] is the sub-list for extension extendee
+	0,  // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_bitcolibri_birdFeed_v1_query_proto_init() }
@@ -3262,6 +6197,78 @@ func file_bitcolibri_birdFeed_v1_query_proto_init() {
 				return nil
 			}
 		}
+		file_bitcolibri_birdFeed_v1_query_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetUserRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_bitcolibri_birdFeed_v1_query_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetUserResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_bitcolibri_birdFeed_v1_query_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetUserFollowersRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_bitcolibri_birdFeed_v1_query_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetUserFollowersResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_bitcolibri_birdFeed_v1_query_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetUserFollowsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_bitcolibri_birdFeed_v1_query_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetUserFollowsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -3269,7 +6276,7 @@ func file_bitcolibri_birdFeed_v1_query_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_bitcolibri_birdFeed_v1_query_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

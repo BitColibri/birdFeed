@@ -302,6 +302,270 @@ func (m *QueryGetTweetLikesResponse) GetLikes() []string {
 	return nil
 }
 
+type QueryGetUserRequest struct {
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *QueryGetUserRequest) Reset()         { *m = QueryGetUserRequest{} }
+func (m *QueryGetUserRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetUserRequest) ProtoMessage()    {}
+func (*QueryGetUserRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8a4f1e2044a41033, []int{6}
+}
+func (m *QueryGetUserRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetUserRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetUserRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetUserRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetUserRequest.Merge(m, src)
+}
+func (m *QueryGetUserRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetUserRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetUserRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetUserRequest proto.InternalMessageInfo
+
+func (m *QueryGetUserRequest) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type QueryGetUserResponse struct {
+	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (m *QueryGetUserResponse) Reset()         { *m = QueryGetUserResponse{} }
+func (m *QueryGetUserResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetUserResponse) ProtoMessage()    {}
+func (*QueryGetUserResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8a4f1e2044a41033, []int{7}
+}
+func (m *QueryGetUserResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetUserResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetUserResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetUserResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetUserResponse.Merge(m, src)
+}
+func (m *QueryGetUserResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetUserResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetUserResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetUserResponse proto.InternalMessageInfo
+
+func (m *QueryGetUserResponse) GetUser() *User {
+	if m != nil {
+		return m.User
+	}
+	return nil
+}
+
+type QueryGetUserFollowersRequest struct {
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *QueryGetUserFollowersRequest) Reset()         { *m = QueryGetUserFollowersRequest{} }
+func (m *QueryGetUserFollowersRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetUserFollowersRequest) ProtoMessage()    {}
+func (*QueryGetUserFollowersRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8a4f1e2044a41033, []int{8}
+}
+func (m *QueryGetUserFollowersRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetUserFollowersRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetUserFollowersRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetUserFollowersRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetUserFollowersRequest.Merge(m, src)
+}
+func (m *QueryGetUserFollowersRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetUserFollowersRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetUserFollowersRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetUserFollowersRequest proto.InternalMessageInfo
+
+func (m *QueryGetUserFollowersRequest) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type QueryGetUserFollowersResponse struct {
+	Followers []string `protobuf:"bytes,1,rep,name=followers,proto3" json:"followers,omitempty"`
+}
+
+func (m *QueryGetUserFollowersResponse) Reset()         { *m = QueryGetUserFollowersResponse{} }
+func (m *QueryGetUserFollowersResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetUserFollowersResponse) ProtoMessage()    {}
+func (*QueryGetUserFollowersResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8a4f1e2044a41033, []int{9}
+}
+func (m *QueryGetUserFollowersResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetUserFollowersResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetUserFollowersResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetUserFollowersResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetUserFollowersResponse.Merge(m, src)
+}
+func (m *QueryGetUserFollowersResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetUserFollowersResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetUserFollowersResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetUserFollowersResponse proto.InternalMessageInfo
+
+func (m *QueryGetUserFollowersResponse) GetFollowers() []string {
+	if m != nil {
+		return m.Followers
+	}
+	return nil
+}
+
+type QueryGetUserFollowsRequest struct {
+	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
+}
+
+func (m *QueryGetUserFollowsRequest) Reset()         { *m = QueryGetUserFollowsRequest{} }
+func (m *QueryGetUserFollowsRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetUserFollowsRequest) ProtoMessage()    {}
+func (*QueryGetUserFollowsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8a4f1e2044a41033, []int{10}
+}
+func (m *QueryGetUserFollowsRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetUserFollowsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetUserFollowsRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetUserFollowsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetUserFollowsRequest.Merge(m, src)
+}
+func (m *QueryGetUserFollowsRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetUserFollowsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetUserFollowsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetUserFollowsRequest proto.InternalMessageInfo
+
+func (m *QueryGetUserFollowsRequest) GetAddress() string {
+	if m != nil {
+		return m.Address
+	}
+	return ""
+}
+
+type QueryGetUserFollowsResponse struct {
+	Follows []string `protobuf:"bytes,1,rep,name=follows,proto3" json:"follows,omitempty"`
+}
+
+func (m *QueryGetUserFollowsResponse) Reset()         { *m = QueryGetUserFollowsResponse{} }
+func (m *QueryGetUserFollowsResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetUserFollowsResponse) ProtoMessage()    {}
+func (*QueryGetUserFollowsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8a4f1e2044a41033, []int{11}
+}
+func (m *QueryGetUserFollowsResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetUserFollowsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetUserFollowsResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetUserFollowsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetUserFollowsResponse.Merge(m, src)
+}
+func (m *QueryGetUserFollowsResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetUserFollowsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetUserFollowsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetUserFollowsResponse proto.InternalMessageInfo
+
+func (m *QueryGetUserFollowsResponse) GetFollows() []string {
+	if m != nil {
+		return m.Follows
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryGetTweetRequest)(nil), "bitcolibri.birdFeed.v1.QueryGetTweetRequest")
 	proto.RegisterType((*QueryGetTweetResponse)(nil), "bitcolibri.birdFeed.v1.QueryGetTweetResponse")
@@ -309,6 +573,12 @@ func init() {
 	proto.RegisterType((*QueryGetAuthorTweetsResponse)(nil), "bitcolibri.birdFeed.v1.QueryGetAuthorTweetsResponse")
 	proto.RegisterType((*QueryGetTweetLikesRequest)(nil), "bitcolibri.birdFeed.v1.QueryGetTweetLikesRequest")
 	proto.RegisterType((*QueryGetTweetLikesResponse)(nil), "bitcolibri.birdFeed.v1.QueryGetTweetLikesResponse")
+	proto.RegisterType((*QueryGetUserRequest)(nil), "bitcolibri.birdFeed.v1.QueryGetUserRequest")
+	proto.RegisterType((*QueryGetUserResponse)(nil), "bitcolibri.birdFeed.v1.QueryGetUserResponse")
+	proto.RegisterType((*QueryGetUserFollowersRequest)(nil), "bitcolibri.birdFeed.v1.QueryGetUserFollowersRequest")
+	proto.RegisterType((*QueryGetUserFollowersResponse)(nil), "bitcolibri.birdFeed.v1.QueryGetUserFollowersResponse")
+	proto.RegisterType((*QueryGetUserFollowsRequest)(nil), "bitcolibri.birdFeed.v1.QueryGetUserFollowsRequest")
+	proto.RegisterType((*QueryGetUserFollowsResponse)(nil), "bitcolibri.birdFeed.v1.QueryGetUserFollowsResponse")
 }
 
 func init() {
@@ -316,37 +586,49 @@ func init() {
 }
 
 var fileDescriptor_8a4f1e2044a41033 = []byte{
-	// 475 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x93, 0x41, 0x6b, 0x13, 0x41,
-	0x14, 0xc7, 0x33, 0xd1, 0x84, 0xf6, 0x89, 0x0a, 0x43, 0x2c, 0x71, 0x5b, 0x97, 0x32, 0x88, 0x94,
-	0xaa, 0x3b, 0x26, 0x31, 0xa0, 0x78, 0xd2, 0x83, 0x5e, 0xbc, 0x18, 0xf4, 0xe2, 0x2d, 0xbb, 0x3b,
-	0x6c, 0x07, 0xb3, 0x3b, 0xdb, 0x9d, 0xd9, 0x4a, 0x29, 0xbd, 0x78, 0xd1, 0x93, 0x08, 0x5e, 0xfc,
-	0x12, 0x82, 0x57, 0xbf, 0x81, 0xc7, 0x82, 0x17, 0x8f, 0x92, 0x08, 0x7e, 0x0d, 0xd9, 0x99, 0x59,
-	0xd3, 0x86, 0x5d, 0x92, 0x9e, 0x32, 0xf3, 0xf8, 0xff, 0x5f, 0x7e, 0xf3, 0x7f, 0x6f, 0x81, 0xf8,
-	0x5c, 0x05, 0x62, 0xc2, 0xfd, 0x8c, 0x53, 0x9f, 0x67, 0xe1, 0x53, 0xc6, 0x42, 0x7a, 0xd0, 0xa3,
-	0xfb, 0x39, 0xcb, 0x0e, 0xbd, 0x34, 0x13, 0x4a, 0xe0, 0x8d, 0xb9, 0xc6, 0x2b, 0x35, 0xde, 0x41,
-	0xcf, 0xa9, 0xf3, 0xaa, 0xc3, 0x94, 0x49, 0xe3, 0x75, 0x36, 0x03, 0x21, 0x63, 0x21, 0x4d, 0xbf,
-	0x85, 0xc6, 0x4e, 0x27, 0x12, 0x91, 0xd0, 0x47, 0x5a, 0x9c, 0x6c, 0x75, 0x2b, 0x12, 0x22, 0x9a,
-	0x30, 0x3a, 0x4e, 0x39, 0x1d, 0x27, 0x89, 0x50, 0x63, 0xc5, 0x45, 0x62, 0x1b, 0x92, 0x5b, 0xd0,
-	0x79, 0x51, 0xb4, 0x78, 0xc6, 0xd4, 0xcb, 0xb7, 0x8c, 0xa9, 0x11, 0xdb, 0xcf, 0x99, 0x54, 0xf8,
-	0x0a, 0x34, 0x79, 0xd8, 0x45, 0xdb, 0x68, 0x67, 0x7d, 0xd4, 0xe4, 0x21, 0x79, 0x8f, 0xe0, 0xda,
-	0x82, 0x50, 0xa6, 0x22, 0x91, 0x0c, 0x0f, 0xa0, 0xa5, 0x8a, 0x82, 0x16, 0x5f, 0xea, 0xdf, 0xf0,
-	0xaa, 0x9f, 0xe7, 0x19, 0x97, 0xd1, 0xe2, 0x87, 0xb0, 0x16, 0x88, 0x38, 0x66, 0x89, 0x92, 0xdd,
-	0xe6, 0xf6, 0x85, 0xe5, 0xbe, 0xff, 0x72, 0x32, 0x84, 0xcd, 0x12, 0xe4, 0x71, 0xae, 0xf6, 0x44,
-	0xa6, 0x05, 0xb2, 0x04, 0xdf, 0x80, 0xf6, 0x58, 0x97, 0x2d, 0xbc, 0xbd, 0x91, 0x57, 0xb0, 0x55,
-	0x6d, 0xb3, 0xcf, 0x18, 0x42, 0x5b, 0xa3, 0xc9, 0x2e, 0x5a, 0x85, 0xc7, 0x8a, 0xc9, 0x6d, 0xb8,
-	0x7e, 0x26, 0x96, 0xe7, 0xfc, 0x0d, 0x93, 0x75, 0x21, 0xf6, 0xc1, 0xa9, 0x12, 0x5b, 0x82, 0x0e,
-	0xb4, 0x26, 0x45, 0x41, 0x03, 0xac, 0x8f, 0xcc, 0xa5, 0xff, 0xf1, 0x22, 0xb4, 0xb4, 0x09, 0x7f,
-	0x41, 0xb0, 0x56, 0x3a, 0xf1, 0x9d, 0x3a, 0xbc, 0xaa, 0x69, 0x3a, 0x77, 0x57, 0x54, 0x1b, 0x12,
-	0x42, 0x3f, 0xfc, 0xfd, 0xb6, 0x8b, 0xde, 0xfd, 0xfc, 0xf3, 0xb9, 0x79, 0x13, 0x13, 0x5a, 0xb7,
-	0x97, 0x85, 0x87, 0x1e, 0xf1, 0xf0, 0x18, 0x7f, 0x47, 0x70, 0x75, 0x21, 0x58, 0x3c, 0x58, 0xf6,
-	0x9f, 0x15, 0xd3, 0x73, 0xee, 0x9f, 0xcf, 0x64, 0x79, 0x1f, 0xcd, 0x79, 0xef, 0x61, 0xaf, 0x8e,
-	0xd7, 0x2c, 0x02, 0x3d, 0x32, 0xbf, 0xc7, 0x86, 0x5f, 0xe2, 0xaf, 0x08, 0x2e, 0x9f, 0x19, 0x08,
-	0xee, 0xad, 0x94, 0xd6, 0xe9, 0x49, 0x3b, 0xfd, 0xf3, 0x58, 0x2c, 0xf5, 0x70, 0x4e, 0xbd, 0x8b,
-	0x77, 0x96, 0xa7, 0x4c, 0xf5, 0x42, 0x3c, 0x79, 0xf0, 0x63, 0xea, 0xa2, 0x93, 0xa9, 0x8b, 0x7e,
-	0x4f, 0x5d, 0xf4, 0x69, 0xe6, 0x36, 0x4e, 0x66, 0x6e, 0xe3, 0xd7, 0xcc, 0x6d, 0xbc, 0x76, 0x23,
-	0xae, 0xf6, 0x72, 0xdf, 0x0b, 0x44, 0x5c, 0xd5, 0xcd, 0x6f, 0xeb, 0x4f, 0x7e, 0xf0, 0x2f, 0x00,
-	0x00, 0xff, 0xff, 0x3d, 0xd0, 0x3b, 0xed, 0xa5, 0x04, 0x00, 0x00,
+	// 659 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x95, 0xb1, 0x6f, 0xd3, 0x4e,
+	0x14, 0xc7, 0x7b, 0xf9, 0xfd, 0xda, 0x24, 0x0f, 0x51, 0xd0, 0x11, 0xaa, 0xe0, 0xa6, 0x56, 0x75,
+	0x42, 0x55, 0xd4, 0x16, 0x5f, 0xe2, 0x34, 0x50, 0x84, 0x3a, 0xc0, 0x50, 0x18, 0x58, 0x88, 0xe8,
+	0xc2, 0x96, 0xc4, 0x47, 0x6a, 0x91, 0xe4, 0x52, 0xdf, 0xa5, 0x55, 0x15, 0x65, 0x61, 0x81, 0x11,
+	0x89, 0x05, 0x76, 0x56, 0x24, 0x26, 0x24, 0x16, 0x66, 0xc6, 0x4a, 0x2c, 0x8c, 0x28, 0x41, 0xe2,
+	0xdf, 0x40, 0xb6, 0xcf, 0x71, 0x13, 0xd9, 0x8a, 0x33, 0xc5, 0xf7, 0xf4, 0xbe, 0xef, 0x7d, 0xee,
+	0xdd, 0xfb, 0x2a, 0x40, 0x1a, 0xb6, 0x6c, 0xf2, 0xb6, 0xdd, 0x70, 0x6c, 0xda, 0xb0, 0x1d, 0xeb,
+	0x90, 0x31, 0x8b, 0x9e, 0x96, 0xe9, 0x49, 0x9f, 0x39, 0xe7, 0x46, 0xcf, 0xe1, 0x92, 0xe3, 0xb5,
+	0x30, 0xc7, 0x08, 0x72, 0x8c, 0xd3, 0xb2, 0x16, 0xa7, 0x95, 0xe7, 0x3d, 0x26, 0x7c, 0xad, 0xb6,
+	0xde, 0xe4, 0xa2, 0xc3, 0x85, 0x5f, 0x6f, 0xa6, 0xb0, 0x96, 0x6b, 0xf1, 0x16, 0xf7, 0x3e, 0xa9,
+	0xfb, 0xa5, 0xa2, 0x85, 0x16, 0xe7, 0xad, 0x36, 0xa3, 0xf5, 0x9e, 0x4d, 0xeb, 0xdd, 0x2e, 0x97,
+	0x75, 0x69, 0xf3, 0xae, 0x2a, 0x48, 0xb6, 0x20, 0xf7, 0xcc, 0x2d, 0xf1, 0x98, 0xc9, 0xe7, 0x67,
+	0x8c, 0xc9, 0x1a, 0x3b, 0xe9, 0x33, 0x21, 0xf1, 0x2a, 0xa4, 0x6c, 0x2b, 0x8f, 0x36, 0x51, 0x31,
+	0x5b, 0x4b, 0xd9, 0x16, 0x79, 0x83, 0xe0, 0xe6, 0x4c, 0xa2, 0xe8, 0xf1, 0xae, 0x60, 0xb8, 0x02,
+	0xcb, 0xd2, 0x0d, 0x78, 0xc9, 0x57, 0xcc, 0x0d, 0x23, 0xfa, 0x7a, 0x86, 0xaf, 0xf2, 0x73, 0xf1,
+	0x7d, 0xc8, 0x34, 0x79, 0xa7, 0xc3, 0xba, 0x52, 0xe4, 0x53, 0x9b, 0xff, 0xcd, 0xd7, 0x4d, 0xd2,
+	0x49, 0x15, 0xd6, 0x03, 0x90, 0x87, 0x7d, 0x79, 0xcc, 0x1d, 0x2f, 0x41, 0x04, 0xe0, 0x6b, 0xb0,
+	0x52, 0xf7, 0xc2, 0x0a, 0x5e, 0x9d, 0xc8, 0x11, 0x14, 0xa2, 0x65, 0xea, 0x1a, 0x55, 0x58, 0xf1,
+	0xd0, 0x44, 0x1e, 0x25, 0xe1, 0x51, 0xc9, 0x64, 0x07, 0x6e, 0x4d, 0x8d, 0xe5, 0xa9, 0xfd, 0x8a,
+	0x89, 0xb8, 0x21, 0x9a, 0xa0, 0x45, 0x25, 0x2b, 0x82, 0x1c, 0x2c, 0xb7, 0xdd, 0x80, 0x07, 0x90,
+	0xad, 0xf9, 0x07, 0x42, 0xe1, 0x46, 0xa0, 0x39, 0x12, 0xcc, 0x09, 0x4a, 0xe7, 0x21, 0x5d, 0xb7,
+	0x2c, 0x87, 0x09, 0xa1, 0xea, 0x07, 0x47, 0xf2, 0x24, 0x7c, 0x51, 0x5f, 0xa0, 0xca, 0x97, 0xe0,
+	0xff, 0xbe, 0x60, 0x8e, 0x7a, 0xa6, 0x42, 0xdc, 0xf5, 0x3c, 0x8d, 0x97, 0x49, 0xf6, 0xc3, 0x91,
+	0xb9, 0xd1, 0x43, 0xde, 0x6e, 0xf3, 0x33, 0xe6, 0x88, 0xf9, 0x0c, 0x07, 0xb0, 0x11, 0xa3, 0x54,
+	0x30, 0x05, 0xc8, 0xbe, 0x0c, 0x82, 0xea, 0xbe, 0x61, 0x80, 0xdc, 0x0d, 0xe7, 0x14, 0xca, 0x13,
+	0xb4, 0xbd, 0x17, 0xae, 0xc6, 0x94, 0x4e, 0x35, 0xcd, 0x43, 0xda, 0xef, 0x11, 0xb4, 0x0c, 0x8e,
+	0xe6, 0xa7, 0x0c, 0x2c, 0x7b, 0x4a, 0xfc, 0x01, 0x41, 0x26, 0x78, 0x1e, 0xbc, 0x1b, 0x37, 0xa4,
+	0x28, 0xcb, 0x68, 0x77, 0x12, 0x66, 0xfb, 0x34, 0x84, 0xbe, 0xfd, 0xfb, 0x65, 0x1b, 0xbd, 0xfe,
+	0xf9, 0xe7, 0x7d, 0xea, 0x36, 0x26, 0x34, 0xce, 0xfc, 0xae, 0x86, 0x0e, 0x6c, 0x6b, 0x88, 0xbf,
+	0x21, 0xb8, 0x36, 0xb3, 0xbd, 0xb8, 0x32, 0xaf, 0x67, 0x84, 0x45, 0xb4, 0xbd, 0xc5, 0x44, 0x8a,
+	0xf7, 0x41, 0xc8, 0x5b, 0xc2, 0x46, 0x1c, 0xaf, 0xef, 0x36, 0x3a, 0xf0, 0x7f, 0x87, 0x3e, 0xbf,
+	0xc0, 0x9f, 0x11, 0x5c, 0x9d, 0xda, 0x7a, 0x5c, 0x4e, 0x34, 0xad, 0xcb, 0x76, 0xd2, 0xcc, 0x45,
+	0x24, 0x8a, 0xba, 0x1a, 0x52, 0x6f, 0xe3, 0xe2, 0xfc, 0x29, 0x53, 0xcf, 0x75, 0xf8, 0x23, 0x82,
+	0xb4, 0xda, 0x22, 0xbc, 0x33, 0xaf, 0xed, 0x25, 0x5f, 0x6a, 0xbb, 0xc9, 0x92, 0x15, 0x5d, 0x25,
+	0xa4, 0x2b, 0xe2, 0xad, 0x38, 0x3a, 0xd7, 0x8c, 0x74, 0xa0, 0x96, 0x7c, 0x88, 0xbf, 0x23, 0xb8,
+	0x3e, 0x6b, 0x2c, 0xbc, 0x97, 0xa4, 0xef, 0xac, 0x83, 0xb5, 0xea, 0x82, 0x2a, 0x85, 0x7d, 0x10,
+	0x62, 0x9b, 0xb8, 0x94, 0x0c, 0x9b, 0x4e, 0xec, 0x8d, 0xbf, 0x22, 0x58, 0x9d, 0xb6, 0x28, 0x36,
+	0x93, 0x83, 0x4c, 0xe0, 0x2b, 0x0b, 0x69, 0x16, 0xda, 0xe2, 0x48, 0x74, 0xf1, 0x68, 0xff, 0xc7,
+	0x48, 0x47, 0x17, 0x23, 0x1d, 0xfd, 0x1e, 0xe9, 0xe8, 0xdd, 0x58, 0x5f, 0xba, 0x18, 0xeb, 0x4b,
+	0xbf, 0xc6, 0xfa, 0xd2, 0x0b, 0xbd, 0x65, 0xcb, 0xe3, 0x7e, 0xc3, 0x68, 0xf2, 0x4e, 0x54, 0xcd,
+	0xc6, 0x8a, 0xf7, 0x6f, 0x5b, 0xf9, 0x17, 0x00, 0x00, 0xff, 0xff, 0x0d, 0x1b, 0xb7, 0xf8, 0x20,
+	0x08, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -364,6 +646,9 @@ type QueryClient interface {
 	GetTweet(ctx context.Context, in *QueryGetTweetRequest, opts ...grpc.CallOption) (*QueryGetTweetResponse, error)
 	GetAuthorTweets(ctx context.Context, in *QueryGetAuthorTweetsRequest, opts ...grpc.CallOption) (*QueryGetAuthorTweetsResponse, error)
 	GetTweetLikes(ctx context.Context, in *QueryGetTweetLikesRequest, opts ...grpc.CallOption) (*QueryGetTweetLikesResponse, error)
+	GetUser(ctx context.Context, in *QueryGetUserRequest, opts ...grpc.CallOption) (*QueryGetUserResponse, error)
+	GetUserFollowers(ctx context.Context, in *QueryGetUserFollowersRequest, opts ...grpc.CallOption) (*QueryGetUserFollowersResponse, error)
+	GetUserFollows(ctx context.Context, in *QueryGetUserFollowsRequest, opts ...grpc.CallOption) (*QueryGetUserFollowsResponse, error)
 }
 
 type queryClient struct {
@@ -401,11 +686,41 @@ func (c *queryClient) GetTweetLikes(ctx context.Context, in *QueryGetTweetLikesR
 	return out, nil
 }
 
+func (c *queryClient) GetUser(ctx context.Context, in *QueryGetUserRequest, opts ...grpc.CallOption) (*QueryGetUserResponse, error) {
+	out := new(QueryGetUserResponse)
+	err := c.cc.Invoke(ctx, "/bitcolibri.birdFeed.v1.Query/GetUser", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) GetUserFollowers(ctx context.Context, in *QueryGetUserFollowersRequest, opts ...grpc.CallOption) (*QueryGetUserFollowersResponse, error) {
+	out := new(QueryGetUserFollowersResponse)
+	err := c.cc.Invoke(ctx, "/bitcolibri.birdFeed.v1.Query/GetUserFollowers", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) GetUserFollows(ctx context.Context, in *QueryGetUserFollowsRequest, opts ...grpc.CallOption) (*QueryGetUserFollowsResponse, error) {
+	out := new(QueryGetUserFollowsResponse)
+	err := c.cc.Invoke(ctx, "/bitcolibri.birdFeed.v1.Query/GetUserFollows", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	GetTweet(context.Context, *QueryGetTweetRequest) (*QueryGetTweetResponse, error)
 	GetAuthorTweets(context.Context, *QueryGetAuthorTweetsRequest) (*QueryGetAuthorTweetsResponse, error)
 	GetTweetLikes(context.Context, *QueryGetTweetLikesRequest) (*QueryGetTweetLikesResponse, error)
+	GetUser(context.Context, *QueryGetUserRequest) (*QueryGetUserResponse, error)
+	GetUserFollowers(context.Context, *QueryGetUserFollowersRequest) (*QueryGetUserFollowersResponse, error)
+	GetUserFollows(context.Context, *QueryGetUserFollowsRequest) (*QueryGetUserFollowsResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -420,6 +735,15 @@ func (*UnimplementedQueryServer) GetAuthorTweets(ctx context.Context, req *Query
 }
 func (*UnimplementedQueryServer) GetTweetLikes(ctx context.Context, req *QueryGetTweetLikesRequest) (*QueryGetTweetLikesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTweetLikes not implemented")
+}
+func (*UnimplementedQueryServer) GetUser(ctx context.Context, req *QueryGetUserRequest) (*QueryGetUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUser not implemented")
+}
+func (*UnimplementedQueryServer) GetUserFollowers(ctx context.Context, req *QueryGetUserFollowersRequest) (*QueryGetUserFollowersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserFollowers not implemented")
+}
+func (*UnimplementedQueryServer) GetUserFollows(ctx context.Context, req *QueryGetUserFollowsRequest) (*QueryGetUserFollowsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserFollows not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -480,6 +804,60 @@ func _Query_GetTweetLikes_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetUserRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bitcolibri.birdFeed.v1.Query/GetUser",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetUser(ctx, req.(*QueryGetUserRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_GetUserFollowers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetUserFollowersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetUserFollowers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bitcolibri.birdFeed.v1.Query/GetUserFollowers",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetUserFollowers(ctx, req.(*QueryGetUserFollowersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_GetUserFollows_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetUserFollowsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetUserFollows(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bitcolibri.birdFeed.v1.Query/GetUserFollows",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetUserFollows(ctx, req.(*QueryGetUserFollowsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "bitcolibri.birdFeed.v1.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -495,6 +873,18 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetTweetLikes",
 			Handler:    _Query_GetTweetLikes_Handler,
+		},
+		{
+			MethodName: "GetUser",
+			Handler:    _Query_GetUser_Handler,
+		},
+		{
+			MethodName: "GetUserFollowers",
+			Handler:    _Query_GetUserFollowers_Handler,
+		},
+		{
+			MethodName: "GetUserFollows",
+			Handler:    _Query_GetUserFollows_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -709,6 +1099,195 @@ func (m *QueryGetTweetLikesResponse) MarshalToSizedBuffer(dAtA []byte) (int, err
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetUserRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetUserRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetUserRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetUserResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetUserResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetUserResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.User != nil {
+		{
+			size, err := m.User.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetUserFollowersRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetUserFollowersRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetUserFollowersRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetUserFollowersResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetUserFollowersResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetUserFollowersResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Followers) > 0 {
+		for iNdEx := len(m.Followers) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.Followers[iNdEx])
+			copy(dAtA[i:], m.Followers[iNdEx])
+			i = encodeVarintQuery(dAtA, i, uint64(len(m.Followers[iNdEx])))
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetUserFollowsRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetUserFollowsRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetUserFollowsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Address) > 0 {
+		i -= len(m.Address)
+		copy(dAtA[i:], m.Address)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Address)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetUserFollowsResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetUserFollowsResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetUserFollowsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Follows) > 0 {
+		for iNdEx := len(m.Follows) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.Follows[iNdEx])
+			copy(dAtA[i:], m.Follows[iNdEx])
+			i = encodeVarintQuery(dAtA, i, uint64(len(m.Follows[iNdEx])))
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -801,6 +1380,88 @@ func (m *QueryGetTweetLikesResponse) Size() (n int) {
 	_ = l
 	if len(m.Likes) > 0 {
 		for _, s := range m.Likes {
+			l = len(s)
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	return n
+}
+
+func (m *QueryGetUserRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetUserResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.User != nil {
+		l = m.User.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetUserFollowersRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetUserFollowersResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Followers) > 0 {
+		for _, s := range m.Followers {
+			l = len(s)
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	return n
+}
+
+func (m *QueryGetUserFollowsRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Address)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetUserFollowsResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Follows) > 0 {
+		for _, s := range m.Follows {
 			l = len(s)
 			n += 1 + l + sovQuery(uint64(l))
 		}
@@ -1324,6 +1985,502 @@ func (m *QueryGetTweetLikesResponse) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Likes = append(m.Likes, string(dAtA[iNdEx:postIndex]))
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetUserRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetUserRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetUserRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetUserResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetUserResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetUserResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field User", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.User == nil {
+				m.User = &User{}
+			}
+			if err := m.User.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetUserFollowersRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetUserFollowersRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetUserFollowersRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetUserFollowersResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetUserFollowersResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetUserFollowersResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Followers", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Followers = append(m.Followers, string(dAtA[iNdEx:postIndex]))
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetUserFollowsRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetUserFollowsRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetUserFollowsRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Address", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Address = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetUserFollowsResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetUserFollowsResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetUserFollowsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Follows", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Follows = append(m.Follows, string(dAtA[iNdEx:postIndex]))
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

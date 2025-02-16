@@ -90,3 +90,45 @@ func (s queryServer) GetTweetLikes(ctx context.Context, msg *birdFeed.QueryGetTw
 		Likes: likes,
 	}, nil
 }
+
+func (s queryServer) GetUser(ctx context.Context, msg *birdFeed.QueryGetUserRequest) (*birdFeed.QueryGetUserResponse, error) {
+	user, err := s.k.Users.Get(ctx, msg.Address)
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+	return &birdFeed.QueryGetUserResponse{User: &user}, nil
+}
+
+func (s queryServer) GetUserFollowers(ctx context.Context, msg *birdFeed.QueryGetUserFollowersRequest) (*birdFeed.QueryGetUserFollowersResponse, error) {
+	var followers []string
+
+	rng := collections.NewPrefixedPairRange[string, string](msg.Address)
+	err := s.k.Followers.Walk(ctx, rng, func(key collections.Pair[string, string]) (bool, error) {
+		followers = append(followers, key.K2())
+		return false, nil
+	})
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+
+	return &birdFeed.QueryGetUserFollowersResponse{
+		Followers: followers,
+	}, nil
+}
+
+func (s queryServer) GetUserFollows(ctx context.Context, msg *birdFeed.QueryGetUserFollowsRequest) (*birdFeed.QueryGetUserFollowsResponse, error) {
+	var follows []string
+
+	rng := collections.NewPrefixedPairRange[string, string](msg.Address)
+	err := s.k.Follows.Walk(ctx, rng, func(key collections.Pair[string, string]) (bool, error) {
+		follows = append(follows, key.K2())
+		return false, nil
+	})
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+
+	return &birdFeed.QueryGetUserFollowsResponse{
+		Follows: follows,
+	}, nil
+}

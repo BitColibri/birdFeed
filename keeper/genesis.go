@@ -14,6 +14,25 @@ func (k *Keeper) InitGenesis(ctx context.Context, data *birdFeed.GenesisState) e
 		return err
 	}
 
+	for _, user := range data.IndexedUsers {
+		if err := k.Users.Set(ctx, user.Index, *user.User); err != nil {
+			return err
+		}
+	}
+
+	for _, follow := range data.IndexedFollows {
+		key := collections.Join(follow.K1, follow.K2)
+		if err := k.Follows.Set(ctx, key); err != nil {
+			return err
+		}
+	}
+
+	for _, follow := range data.IndexedFollowers {
+		key := collections.Join(follow.K1, follow.K2)
+		if err := k.Followers.Set(ctx, key); err != nil {
+			return err
+		}
+	}
 	for _, tweet := range data.IndexedTweets {
 		if err := k.Tweets.Set(ctx, tweet.Index, *tweet.Tweet); err != nil {
 			return err
@@ -40,6 +59,39 @@ func (k *Keeper) InitGenesis(ctx context.Context, data *birdFeed.GenesisState) e
 func (k *Keeper) ExportGenesis(ctx context.Context) (*birdFeed.GenesisState, error) {
 	params, err := k.Params.Get(ctx)
 	if err != nil {
+		return nil, err
+	}
+
+	var indexedUsers []birdFeed.IndexedUser
+	if err := k.Users.Walk(ctx, nil, func(index string, user birdFeed.User) (bool, error) {
+		indexedUsers = append(indexedUsers, birdFeed.IndexedUser{
+			Index: index,
+			User:  &user,
+		})
+		return false, nil
+	}); err != nil {
+		return nil, err
+	}
+
+	var indexedFollows []birdFeed.IndexedFollow
+	if err := k.Follows.Walk(ctx, nil, func(index collections.Pair[string, string]) (bool, error) {
+		indexedFollows = append(indexedFollows, birdFeed.IndexedFollow{
+			K1: index.K1(),
+			K2: index.K2(),
+		})
+		return false, nil
+	}); err != nil {
+		return nil, err
+	}
+
+	var indexedFollowers []birdFeed.IndexedFollow
+	if err := k.Followers.Walk(ctx, nil, func(index collections.Pair[string, string]) (bool, error) {
+		indexedFollowers = append(indexedFollowers, birdFeed.IndexedFollow{
+			K1: index.K1(),
+			K2: index.K2(),
+		})
+		return false, nil
+	}); err != nil {
 		return nil, err
 	}
 
@@ -80,9 +132,12 @@ func (k *Keeper) ExportGenesis(ctx context.Context) (*birdFeed.GenesisState, err
 	}
 
 	return &birdFeed.GenesisState{
-		Params:          params,
-		IndexedTweets:   indexedTweets,
-		IndexedLikes:    indexedLikes,
-		IndexedComments: indexedComments,
+		Params:           params,
+		IndexedUsers:     indexedUsers,
+		IndexedFollows:   indexedFollows,
+		IndexedFollowers: indexedFollowers,
+		IndexedTweets:    indexedTweets,
+		IndexedLikes:     indexedLikes,
+		IndexedComments:  indexedComments,
 	}, nil
 }

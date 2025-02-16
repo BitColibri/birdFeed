@@ -19,7 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
+	Msg_InitUser_FullMethodName     = "/bitcolibri.birdFeed.v1.Msg/InitUser"
+	Msg_FollowUser_FullMethodName   = "/bitcolibri.birdFeed.v1.Msg/FollowUser"
+	Msg_UnfollowUser_FullMethodName = "/bitcolibri.birdFeed.v1.Msg/UnfollowUser"
 	Msg_PublishTweet_FullMethodName = "/bitcolibri.birdFeed.v1.Msg/PublishTweet"
+	Msg_RemoveTweet_FullMethodName  = "/bitcolibri.birdFeed.v1.Msg/RemoveTweet"
 	Msg_LikeTweet_FullMethodName    = "/bitcolibri.birdFeed.v1.Msg/LikeTweet"
 	Msg_UnlikeTweet_FullMethodName  = "/bitcolibri.birdFeed.v1.Msg/UnlikeTweet"
 	Msg_CommentTweet_FullMethodName = "/bitcolibri.birdFeed.v1.Msg/CommentTweet"
@@ -29,8 +33,12 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MsgClient interface {
+	InitUser(ctx context.Context, in *MsgInitUser, opts ...grpc.CallOption) (*MsgInitUserResponse, error)
+	FollowUser(ctx context.Context, in *MsgFollowUser, opts ...grpc.CallOption) (*MsgFollowUserResponse, error)
+	UnfollowUser(ctx context.Context, in *MsgUnfollowUser, opts ...grpc.CallOption) (*MsgUnfollowUserResponse, error)
 	// CreateGame create a game.
 	PublishTweet(ctx context.Context, in *MsgPublishTweet, opts ...grpc.CallOption) (*MsgPublishTweetResponse, error)
+	RemoveTweet(ctx context.Context, in *MsgRemoveTweet, opts ...grpc.CallOption) (*MsgRemoveTweetResponse, error)
 	LikeTweet(ctx context.Context, in *MsgLikeTweet, opts ...grpc.CallOption) (*MsgLikeTweetResponse, error)
 	UnlikeTweet(ctx context.Context, in *MsgUnlikeTweet, opts ...grpc.CallOption) (*MsgUnlikeTweetResponse, error)
 	CommentTweet(ctx context.Context, in *MsgCommentTweet, opts ...grpc.CallOption) (*MsgCommentTweetResponse, error)
@@ -44,9 +52,45 @@ func NewMsgClient(cc grpc.ClientConnInterface) MsgClient {
 	return &msgClient{cc}
 }
 
+func (c *msgClient) InitUser(ctx context.Context, in *MsgInitUser, opts ...grpc.CallOption) (*MsgInitUserResponse, error) {
+	out := new(MsgInitUserResponse)
+	err := c.cc.Invoke(ctx, Msg_InitUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) FollowUser(ctx context.Context, in *MsgFollowUser, opts ...grpc.CallOption) (*MsgFollowUserResponse, error) {
+	out := new(MsgFollowUserResponse)
+	err := c.cc.Invoke(ctx, Msg_FollowUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UnfollowUser(ctx context.Context, in *MsgUnfollowUser, opts ...grpc.CallOption) (*MsgUnfollowUserResponse, error) {
+	out := new(MsgUnfollowUserResponse)
+	err := c.cc.Invoke(ctx, Msg_UnfollowUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *msgClient) PublishTweet(ctx context.Context, in *MsgPublishTweet, opts ...grpc.CallOption) (*MsgPublishTweetResponse, error) {
 	out := new(MsgPublishTweetResponse)
 	err := c.cc.Invoke(ctx, Msg_PublishTweet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) RemoveTweet(ctx context.Context, in *MsgRemoveTweet, opts ...grpc.CallOption) (*MsgRemoveTweetResponse, error) {
+	out := new(MsgRemoveTweetResponse)
+	err := c.cc.Invoke(ctx, Msg_RemoveTweet_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -84,8 +128,12 @@ func (c *msgClient) CommentTweet(ctx context.Context, in *MsgCommentTweet, opts 
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
 type MsgServer interface {
+	InitUser(context.Context, *MsgInitUser) (*MsgInitUserResponse, error)
+	FollowUser(context.Context, *MsgFollowUser) (*MsgFollowUserResponse, error)
+	UnfollowUser(context.Context, *MsgUnfollowUser) (*MsgUnfollowUserResponse, error)
 	// CreateGame create a game.
 	PublishTweet(context.Context, *MsgPublishTweet) (*MsgPublishTweetResponse, error)
+	RemoveTweet(context.Context, *MsgRemoveTweet) (*MsgRemoveTweetResponse, error)
 	LikeTweet(context.Context, *MsgLikeTweet) (*MsgLikeTweetResponse, error)
 	UnlikeTweet(context.Context, *MsgUnlikeTweet) (*MsgUnlikeTweetResponse, error)
 	CommentTweet(context.Context, *MsgCommentTweet) (*MsgCommentTweetResponse, error)
@@ -96,8 +144,20 @@ type MsgServer interface {
 type UnimplementedMsgServer struct {
 }
 
+func (UnimplementedMsgServer) InitUser(context.Context, *MsgInitUser) (*MsgInitUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitUser not implemented")
+}
+func (UnimplementedMsgServer) FollowUser(context.Context, *MsgFollowUser) (*MsgFollowUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FollowUser not implemented")
+}
+func (UnimplementedMsgServer) UnfollowUser(context.Context, *MsgUnfollowUser) (*MsgUnfollowUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnfollowUser not implemented")
+}
 func (UnimplementedMsgServer) PublishTweet(context.Context, *MsgPublishTweet) (*MsgPublishTweetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PublishTweet not implemented")
+}
+func (UnimplementedMsgServer) RemoveTweet(context.Context, *MsgRemoveTweet) (*MsgRemoveTweetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveTweet not implemented")
 }
 func (UnimplementedMsgServer) LikeTweet(context.Context, *MsgLikeTweet) (*MsgLikeTweetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LikeTweet not implemented")
@@ -121,6 +181,60 @@ func RegisterMsgServer(s grpc.ServiceRegistrar, srv MsgServer) {
 	s.RegisterService(&Msg_ServiceDesc, srv)
 }
 
+func _Msg_InitUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgInitUser)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).InitUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_InitUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).InitUser(ctx, req.(*MsgInitUser))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_FollowUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgFollowUser)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).FollowUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_FollowUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).FollowUser(ctx, req.(*MsgFollowUser))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UnfollowUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUnfollowUser)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UnfollowUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_UnfollowUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UnfollowUser(ctx, req.(*MsgUnfollowUser))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Msg_PublishTweet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(MsgPublishTweet)
 	if err := dec(in); err != nil {
@@ -135,6 +249,24 @@ func _Msg_PublishTweet_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MsgServer).PublishTweet(ctx, req.(*MsgPublishTweet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_RemoveTweet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgRemoveTweet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).RemoveTweet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_RemoveTweet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).RemoveTweet(ctx, req.(*MsgRemoveTweet))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -201,8 +333,24 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "InitUser",
+			Handler:    _Msg_InitUser_Handler,
+		},
+		{
+			MethodName: "FollowUser",
+			Handler:    _Msg_FollowUser_Handler,
+		},
+		{
+			MethodName: "UnfollowUser",
+			Handler:    _Msg_UnfollowUser_Handler,
+		},
+		{
 			MethodName: "PublishTweet",
 			Handler:    _Msg_PublishTweet_Handler,
+		},
+		{
+			MethodName: "RemoveTweet",
+			Handler:    _Msg_RemoveTweet_Handler,
 		},
 		{
 			MethodName: "LikeTweet",
