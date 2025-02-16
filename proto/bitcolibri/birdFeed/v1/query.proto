@@ -1,0 +1,24 @@
+syntax = "proto3";
+package bitcolibri.birdFeed.v1;
+
+option go_package = "github.com/bitcolibri/birdFeed";
+
+import "bitcolibri/birdFeed/v1/types.proto";
+import "google/api/annotations.proto";
+import "cosmos/query/v1/query.proto";
+import "gogoproto/gogo.proto";
+
+service Query {
+  rpc GetTweet(QueryGetTweetRequest) returns (QueryGetTweetResponse) {
+    option (cosmos.query.v1.module_query_safe) = true;
+    option (google.api.http).get = "/bitcolibri/birdFeed/v1/tweet/{id}";
+  }
+}
+
+message QueryGetTweetRequest {
+  string id = 1;
+}
+
+message QueryGetTweetResponse {
+  Tweet tweet = 1;
+}

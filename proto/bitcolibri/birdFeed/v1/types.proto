@@ -1,0 +1,32 @@
+syntax = "proto3";
+package bitcolibri.birdFeed.v1;
+
+import "cosmos_proto/cosmos.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/bitcolibri/birdFeed";
+
+// Params defines the parameters of the module.
+message Params {}
+
+// GenesisState is the state that must be provided at genesis.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [(gogoproto.nullable) = false];
+  repeated IndexedTweet indexedTweets = 2 [(gogoproto.nullable) = false];
+}
+
+message IndexedTweet {
+  string index = 1;
+  Tweet tweet = 2;
+}
+
+message Tweet {
+  string author = 1;
+  string content = 2;
+  int64 timestamp = 3;
+  repeated string hashtags = 4;
+  int64 likes = 5;
+  repeated Tweet responses = 6;
+  string parentId = 7;
+}

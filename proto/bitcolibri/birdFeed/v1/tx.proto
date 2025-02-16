@@ -1,0 +1,28 @@
+syntax = "proto3";
+package bitcolibri.birdFeed.v1;
+
+option go_package = "github.com/bitcolibri/birdFeed";
+
+import "cosmos/msg/v1/msg.proto";
+import "gogoproto/gogo.proto";
+import "cosmos_proto/cosmos.proto";
+
+service Msg {
+  option (cosmos.msg.v1.service) = true;
+
+  // CreateGame create a game.
+  rpc PublishTweet(MsgPublishTweet)
+      returns (MsgPublishTweetResponse);
+}
+
+message MsgPublishTweet {
+  option (cosmos.msg.v1.signer) = "author";
+
+  // creator is the message sender.
+  string author = 1;
+  string content = 2 ;
+  repeated string hashtags = 3;
+}
+
+// MsgCreateGameResponse defines the Msg/CreateGame response type.
+message MsgPublishTweetResponse {}
