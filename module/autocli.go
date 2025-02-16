@@ -27,6 +27,14 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 						{ProtoField: "author"},
 					},
 				},
+				{
+					RpcMethod: "GetTweetLikes",
+					Use:       "likes",
+					Short:     "Get all likes of a tweet",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "id"},
+					},
+				},
 			},
 		},
 		Tx: &autocliv1.ServiceCommandDescriptor{
@@ -37,6 +45,32 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "tweet",
 					Short:     "Publish a new tweet",
 					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "content"},
+						{ProtoField: "hashtags"},
+					},
+				},
+				{
+					RpcMethod: "LikeTweet",
+					Use:       "like",
+					Short:     "Like a tweet",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "tweetID"},
+					},
+				},
+				{
+					RpcMethod: "UnlikeTweet",
+					Use:       "unlike",
+					Short:     "Unlike a tweet",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "tweetID"},
+					},
+				},
+				{
+					RpcMethod: "CommentTweet",
+					Use:       "comment",
+					Short:     "Unlike a tweet",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "tweetID"},
 						{ProtoField: "content"},
 						{ProtoField: "hashtags"},
 					},

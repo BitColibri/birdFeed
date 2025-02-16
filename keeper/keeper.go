@@ -23,7 +23,9 @@ type Keeper struct {
 	Schema       collections.Schema
 	Params       collections.Item[birdFeed.Params]
 	Tweets       collections.Map[string, birdFeed.Tweet]
-	AuthorTweets collections.Map[collections.Pair[string, string], bool] // (author, tweetID) -> Tweet
+	AuthorTweets collections.Map[collections.Pair[string, string], bool]
+	Likes        collections.Map[collections.Pair[string, string], bool]
+	Comments     collections.Map[collections.Triple[string, string, string], bool]
 }
 
 // NewKeeper creates a new Keeper instance
@@ -41,6 +43,14 @@ func NewKeeper(cdc codec.BinaryCodec, addressCodec address.Codec, storeService s
 		Tweets:       collections.NewMap(sb, birdFeed.TweetsKey, "tweets", collections.StringKey, codec.CollValue[birdFeed.Tweet](cdc)),
 		AuthorTweets: collections.NewMap(sb, birdFeed.AuthorTweetsKey, "author_tweets",
 			collections.PairKeyCodec(collections.StringKey, collections.StringKey),
+			collections.BoolValue,
+		),
+		Likes: collections.NewMap(sb, birdFeed.LikesKey, "likes",
+			collections.PairKeyCodec(collections.StringKey, collections.StringKey),
+			collections.BoolValue,
+		),
+		Comments: collections.NewMap(sb, birdFeed.CommentsKey, "comments",
+			collections.TripleKeyCodec(collections.StringKey, collections.StringKey, collections.StringKey),
 			collections.BoolValue,
 		),
 	}

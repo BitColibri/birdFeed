@@ -3,6 +3,8 @@ package keeper
 import (
 	"context"
 
+	"cosmossdk.io/collections"
+
 	"github.com/bitcolibri/birdFeed"
 )
 
@@ -14,6 +16,20 @@ func (k *Keeper) InitGenesis(ctx context.Context, data *birdFeed.GenesisState) e
 
 	for _, tweet := range data.IndexedTweets {
 		if err := k.Tweets.Set(ctx, tweet.Index, *tweet.Tweet); err != nil {
+			return err
+		}
+	}
+
+	for _, like := range data.IndexedLikes {
+		key := collections.Join(like.K1, like.K2)
+		if err := k.Likes.Set(ctx, key, like.Like); err != nil {
+			return err
+		}
+	}
+
+	for _, comment := range data.IndexedComments {
+		key := collections.Join3(comment.K1, comment.K2, comment.K3)
+		if err := k.Comments.Set(ctx, key, comment.Comment); err != nil {
 			return err
 		}
 	}
@@ -38,8 +54,35 @@ func (k *Keeper) ExportGenesis(ctx context.Context) (*birdFeed.GenesisState, err
 		return nil, err
 	}
 
+	var indexedLikes []birdFeed.IndexedLike
+	if err := k.Likes.Walk(ctx, nil, func(index collections.Pair[string, string], _ bool) (bool, error) {
+		indexedLikes = append(indexedLikes, birdFeed.IndexedLike{
+			K1:   index.K1(),
+			K2:   index.K2(),
+			Like: true,
+		})
+		return false, nil
+	}); err != nil {
+		return nil, err
+	}
+
+	var indexedComments []birdFeed.IndexedComment
+	if err := k.Comments.Walk(ctx, nil, func(index collections.Triple[string, string, string], _ bool) (bool, error) {
+		indexedComments = append(indexedComments, birdFeed.IndexedComment{
+			K1:      index.K1(),
+			K2:      index.K2(),
+			K3:      index.K3(),
+			Comment: true,
+		})
+		return false, nil
+	}); err != nil {
+		return nil, err
+	}
+
 	return &birdFeed.GenesisState{
-		Params:        params,
-		IndexedTweets: indexedTweets,
+		Params:          params,
+		IndexedTweets:   indexedTweets,
+		IndexedLikes:    indexedLikes,
+		IndexedComments: indexedComments,
 	}, nil
 }

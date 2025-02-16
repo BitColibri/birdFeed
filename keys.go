@@ -9,4 +9,6 @@ var (
 	ParamsKey       = collections.NewPrefix("Params")
 	TweetsKey       = collections.NewPrefix("Tweets")
 	AuthorTweetsKey = collections.NewPrefix("AuthorTweets")
+	LikesKey        = collections.NewPrefix("Likes")
+	CommentsKey     = collections.NewPrefix("Comments")
 )

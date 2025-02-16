@@ -3,6 +3,7 @@ package keeper
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	"cosmossdk.io/collections"
 	"github.com/bitcolibri/birdFeed"
@@ -22,17 +23,35 @@ func NewQueryServerImpl(k Keeper) birdFeed.QueryServer {
 
 func (s queryServer) GetTweet(ctx context.Context, msg *birdFeed.QueryGetTweetRequest) (*birdFeed.QueryGetTweetResponse, error) {
 	tweet, err := s.k.Tweets.Get(ctx, msg.Id)
-	if err == nil {
-		return &birdFeed.QueryGetTweetResponse{
-			Tweet: &tweet,
-		}, nil
+	if err != nil {
+		if errors.Is(err, collections.ErrNotFound) {
+			return &birdFeed.QueryGetTweetResponse{}, nil
+		}
+
+		return nil, status.Error(codes.Internal, err.Error())
 	}
 
-	if errors.Is(err, collections.ErrNotFound) {
-		return &birdFeed.QueryGetTweetResponse{}, nil
+	var comments []*birdFeed.Tweet
+	rng := collections.NewPrefixedTripleRange[string, string, string](msg.Id)
+	err = s.k.Comments.Walk(ctx, rng, func(key collections.Triple[string, string, string], _ bool) (bool, error) {
+		fmt.Printf("Found comment key: K1=%s, K2=%s, K3=%s\n", key.K1(), key.K2(), key.K3())
+
+		commentId := key.K3()
+		comment, err := s.k.Tweets.Get(ctx, commentId)
+		if err != nil {
+			return false, err
+		}
+		comments = append(comments, &comment)
+		return false, nil
+	})
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
 	}
 
-	return nil, status.Error(codes.Internal, err.Error())
+	return &birdFeed.QueryGetTweetResponse{
+		Tweet:    &tweet,
+		Comments: comments,
+	}, nil
 }
 
 func (s queryServer) GetAuthorTweets(ctx context.Context, msg *birdFeed.QueryGetAuthorTweetsRequest) (*birdFeed.QueryGetAuthorTweetsResponse, error) {
@@ -53,4 +72,21 @@ func (s queryServer) GetAuthorTweets(ctx context.Context, msg *birdFeed.QueryGet
 	return &birdFeed.QueryGetAuthorTweetsResponse{
 		Tweets: tweets,
 	}, err
+}
+
+func (s queryServer) GetTweetLikes(ctx context.Context, msg *birdFeed.QueryGetTweetLikesRequest) (*birdFeed.QueryGetTweetLikesResponse, error) {
+	var likes []string
+
+	rng := collections.NewPrefixedPairRange[string, string](msg.Id)
+	err := s.k.Likes.Walk(ctx, rng, func(key collections.Pair[string, string], _ bool) (bool, error) {
+		likes = append(likes, key.K2())
+		return false, nil
+	})
+	if err != nil {
+		return nil, status.Error(codes.Internal, err.Error())
+	}
+
+	return &birdFeed.QueryGetTweetLikesResponse{
+		Likes: likes,
+	}, nil
 }

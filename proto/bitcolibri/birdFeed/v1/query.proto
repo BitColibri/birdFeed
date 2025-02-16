@@ -18,6 +18,11 @@ service Query {
     option (cosmos.query.v1.module_query_safe) = true;
     option (google.api.http).get = "/bitcolibri/birdFeed/v1/author/{author}/tweets";
   }
+
+  rpc GetTweetLikes(QueryGetTweetLikesRequest) returns (QueryGetTweetLikesResponse) {
+    option (cosmos.query.v1.module_query_safe) = true;
+    option (google.api.http).get = "/bitcolibri/birdFeed/v1/tweet/{id}/likes";
+  }
 }
 
 message QueryGetTweetRequest {
@@ -26,6 +31,7 @@ message QueryGetTweetRequest {
 
 message QueryGetTweetResponse {
   Tweet tweet = 1;
+  repeated Tweet comments = 2;
 }
 
 message QueryGetAuthorTweetsRequest {
@@ -34,4 +40,12 @@ message QueryGetAuthorTweetsRequest {
 
 message QueryGetAuthorTweetsResponse {
   repeated Tweet tweets = 1;
+}
+
+message QueryGetTweetLikesRequest {
+  string id = 1;
+}
+
+message QueryGetTweetLikesResponse {
+  repeated string likes = 1;
 }

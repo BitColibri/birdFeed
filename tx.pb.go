@@ -128,34 +128,329 @@ func (m *MsgPublishTweetResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgPublishTweetResponse proto.InternalMessageInfo
 
+type MsgLikeTweet struct {
+	From    string `protobuf:"bytes,1,opt,name=from,proto3" json:"from,omitempty"`
+	TweetID string `protobuf:"bytes,2,opt,name=tweetID,proto3" json:"tweetID,omitempty"`
+}
+
+func (m *MsgLikeTweet) Reset()         { *m = MsgLikeTweet{} }
+func (m *MsgLikeTweet) String() string { return proto.CompactTextString(m) }
+func (*MsgLikeTweet) ProtoMessage()    {}
+func (*MsgLikeTweet) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d4f91cdd7d19f98c, []int{2}
+}
+func (m *MsgLikeTweet) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgLikeTweet) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgLikeTweet.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgLikeTweet) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgLikeTweet.Merge(m, src)
+}
+func (m *MsgLikeTweet) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgLikeTweet) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgLikeTweet.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgLikeTweet proto.InternalMessageInfo
+
+func (m *MsgLikeTweet) GetFrom() string {
+	if m != nil {
+		return m.From
+	}
+	return ""
+}
+
+func (m *MsgLikeTweet) GetTweetID() string {
+	if m != nil {
+		return m.TweetID
+	}
+	return ""
+}
+
+type MsgLikeTweetResponse struct {
+}
+
+func (m *MsgLikeTweetResponse) Reset()         { *m = MsgLikeTweetResponse{} }
+func (m *MsgLikeTweetResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgLikeTweetResponse) ProtoMessage()    {}
+func (*MsgLikeTweetResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d4f91cdd7d19f98c, []int{3}
+}
+func (m *MsgLikeTweetResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgLikeTweetResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgLikeTweetResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgLikeTweetResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgLikeTweetResponse.Merge(m, src)
+}
+func (m *MsgLikeTweetResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgLikeTweetResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgLikeTweetResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgLikeTweetResponse proto.InternalMessageInfo
+
+type MsgUnlikeTweet struct {
+	From    string `protobuf:"bytes,1,opt,name=from,proto3" json:"from,omitempty"`
+	TweetID string `protobuf:"bytes,2,opt,name=tweetID,proto3" json:"tweetID,omitempty"`
+}
+
+func (m *MsgUnlikeTweet) Reset()         { *m = MsgUnlikeTweet{} }
+func (m *MsgUnlikeTweet) String() string { return proto.CompactTextString(m) }
+func (*MsgUnlikeTweet) ProtoMessage()    {}
+func (*MsgUnlikeTweet) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d4f91cdd7d19f98c, []int{4}
+}
+func (m *MsgUnlikeTweet) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUnlikeTweet) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUnlikeTweet.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUnlikeTweet) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUnlikeTweet.Merge(m, src)
+}
+func (m *MsgUnlikeTweet) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUnlikeTweet) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUnlikeTweet.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUnlikeTweet proto.InternalMessageInfo
+
+func (m *MsgUnlikeTweet) GetFrom() string {
+	if m != nil {
+		return m.From
+	}
+	return ""
+}
+
+func (m *MsgUnlikeTweet) GetTweetID() string {
+	if m != nil {
+		return m.TweetID
+	}
+	return ""
+}
+
+type MsgUnlikeTweetResponse struct {
+}
+
+func (m *MsgUnlikeTweetResponse) Reset()         { *m = MsgUnlikeTweetResponse{} }
+func (m *MsgUnlikeTweetResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgUnlikeTweetResponse) ProtoMessage()    {}
+func (*MsgUnlikeTweetResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d4f91cdd7d19f98c, []int{5}
+}
+func (m *MsgUnlikeTweetResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgUnlikeTweetResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgUnlikeTweetResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgUnlikeTweetResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgUnlikeTweetResponse.Merge(m, src)
+}
+func (m *MsgUnlikeTweetResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgUnlikeTweetResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgUnlikeTweetResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgUnlikeTweetResponse proto.InternalMessageInfo
+
+type MsgCommentTweet struct {
+	Author   string   `protobuf:"bytes,1,opt,name=author,proto3" json:"author,omitempty"`
+	Content  string   `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	Hashtags []string `protobuf:"bytes,3,rep,name=hashtags,proto3" json:"hashtags,omitempty"`
+	TweetID  string   `protobuf:"bytes,4,opt,name=tweetID,proto3" json:"tweetID,omitempty"`
+}
+
+func (m *MsgCommentTweet) Reset()         { *m = MsgCommentTweet{} }
+func (m *MsgCommentTweet) String() string { return proto.CompactTextString(m) }
+func (*MsgCommentTweet) ProtoMessage()    {}
+func (*MsgCommentTweet) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d4f91cdd7d19f98c, []int{6}
+}
+func (m *MsgCommentTweet) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCommentTweet) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCommentTweet.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCommentTweet) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCommentTweet.Merge(m, src)
+}
+func (m *MsgCommentTweet) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCommentTweet) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCommentTweet.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCommentTweet proto.InternalMessageInfo
+
+func (m *MsgCommentTweet) GetAuthor() string {
+	if m != nil {
+		return m.Author
+	}
+	return ""
+}
+
+func (m *MsgCommentTweet) GetContent() string {
+	if m != nil {
+		return m.Content
+	}
+	return ""
+}
+
+func (m *MsgCommentTweet) GetHashtags() []string {
+	if m != nil {
+		return m.Hashtags
+	}
+	return nil
+}
+
+func (m *MsgCommentTweet) GetTweetID() string {
+	if m != nil {
+		return m.TweetID
+	}
+	return ""
+}
+
+type MsgCommentTweetResponse struct {
+}
+
+func (m *MsgCommentTweetResponse) Reset()         { *m = MsgCommentTweetResponse{} }
+func (m *MsgCommentTweetResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgCommentTweetResponse) ProtoMessage()    {}
+func (*MsgCommentTweetResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_d4f91cdd7d19f98c, []int{7}
+}
+func (m *MsgCommentTweetResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgCommentTweetResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgCommentTweetResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgCommentTweetResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgCommentTweetResponse.Merge(m, src)
+}
+func (m *MsgCommentTweetResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgCommentTweetResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgCommentTweetResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgCommentTweetResponse proto.InternalMessageInfo
+
 func init() {
 	proto.RegisterType((*MsgPublishTweet)(nil), "bitcolibri.birdFeed.v1.MsgPublishTweet")
 	proto.RegisterType((*MsgPublishTweetResponse)(nil), "bitcolibri.birdFeed.v1.MsgPublishTweetResponse")
+	proto.RegisterType((*MsgLikeTweet)(nil), "bitcolibri.birdFeed.v1.MsgLikeTweet")
+	proto.RegisterType((*MsgLikeTweetResponse)(nil), "bitcolibri.birdFeed.v1.MsgLikeTweetResponse")
+	proto.RegisterType((*MsgUnlikeTweet)(nil), "bitcolibri.birdFeed.v1.MsgUnlikeTweet")
+	proto.RegisterType((*MsgUnlikeTweetResponse)(nil), "bitcolibri.birdFeed.v1.MsgUnlikeTweetResponse")
+	proto.RegisterType((*MsgCommentTweet)(nil), "bitcolibri.birdFeed.v1.MsgCommentTweet")
+	proto.RegisterType((*MsgCommentTweetResponse)(nil), "bitcolibri.birdFeed.v1.MsgCommentTweetResponse")
 }
 
 func init() { proto.RegisterFile("bitcolibri/birdFeed/v1/tx.proto", fileDescriptor_d4f91cdd7d19f98c) }
 
 var fileDescriptor_d4f91cdd7d19f98c = []byte{
-	// 289 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x92, 0x4f, 0xca, 0x2c, 0x49,
-	0xce, 0xcf, 0xc9, 0x4c, 0x2a, 0xca, 0xd4, 0x4f, 0xca, 0x2c, 0x4a, 0x71, 0x4b, 0x4d, 0x4d, 0xd1,
-	0x2f, 0x33, 0xd4, 0x2f, 0xa9, 0xd0, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12, 0x43, 0x28, 0xd0,
-	0x83, 0x29, 0xd0, 0x2b, 0x33, 0x94, 0x12, 0x4f, 0xce, 0x2f, 0xce, 0xcd, 0x2f, 0xd6, 0xcf, 0x2d,
-	0x4e, 0x07, 0xa9, 0xcf, 0x2d, 0x4e, 0x87, 0x68, 0x90, 0x12, 0x49, 0xcf, 0x4f, 0xcf, 0x07, 0x33,
-	0xf5, 0x41, 0x2c, 0xa8, 0xa8, 0x24, 0x44, 0x79, 0x3c, 0x44, 0x02, 0xc2, 0x81, 0x48, 0x29, 0xe5,
-	0x70, 0xf1, 0xfb, 0x16, 0xa7, 0x07, 0x94, 0x26, 0xe5, 0x64, 0x16, 0x67, 0x84, 0x94, 0xa7, 0xa6,
-	0x96, 0x08, 0x89, 0x71, 0xb1, 0x25, 0x96, 0x96, 0x64, 0xe4, 0x17, 0x49, 0x30, 0x2a, 0x30, 0x6a,
-	0x70, 0x06, 0x41, 0x79, 0x42, 0x12, 0x5c, 0xec, 0xc9, 0xf9, 0x79, 0x25, 0xa9, 0x79, 0x25, 0x12,
-	0x4c, 0x60, 0x09, 0x18, 0x57, 0x48, 0x8a, 0x8b, 0x23, 0x23, 0xb1, 0x38, 0xa3, 0x24, 0x31, 0xbd,
-	0x58, 0x82, 0x59, 0x81, 0x59, 0x83, 0x33, 0x08, 0xce, 0xb7, 0xe2, 0x6e, 0x7a, 0xbe, 0x41, 0x0b,
-	0x6a, 0x84, 0x92, 0x24, 0x97, 0x38, 0x9a, 0x6d, 0x41, 0xa9, 0xc5, 0x05, 0xf9, 0x79, 0xc5, 0xa9,
-	0x46, 0x65, 0x5c, 0xcc, 0xbe, 0xc5, 0xe9, 0x42, 0x19, 0x5c, 0x3c, 0x28, 0x8e, 0x51, 0xd7, 0xc3,
-	0x1e, 0x04, 0x7a, 0x68, 0xe6, 0x48, 0xe9, 0x13, 0xa9, 0x10, 0x66, 0xa1, 0x14, 0x6b, 0xc3, 0xf3,
-	0x0d, 0x5a, 0x8c, 0x4e, 0x16, 0x27, 0x1e, 0xc9, 0x31, 0x5e, 0x78, 0x24, 0xc7, 0xf8, 0xe0, 0x91,
-	0x1c, 0xe3, 0x84, 0xc7, 0x72, 0x0c, 0x17, 0x1e, 0xcb, 0x31, 0xdc, 0x78, 0x2c, 0xc7, 0x10, 0x25,
-	0x97, 0x9e, 0x59, 0x92, 0x51, 0x9a, 0xa4, 0x97, 0x9c, 0x9f, 0xab, 0x8f, 0x25, 0xa2, 0x92, 0xd8,
-	0xc0, 0x21, 0x68, 0x0c, 0x08, 0x00, 0x00, 0xff, 0xff, 0xae, 0x61, 0x3d, 0x9d, 0xc6, 0x01, 0x00,
-	0x00,
+	// 435 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x54, 0x4d, 0xab, 0xd3, 0x40,
+	0x14, 0x6d, 0x4c, 0xad, 0xe6, 0xb6, 0x28, 0x84, 0x92, 0xa6, 0x59, 0xc4, 0x12, 0x44, 0x4b, 0x91,
+	0x84, 0xea, 0x46, 0xba, 0x54, 0x51, 0x0a, 0x06, 0xa4, 0xe8, 0xc6, 0x4d, 0x69, 0xd2, 0x71, 0x12,
+	0x4c, 0x32, 0x25, 0x33, 0xad, 0x2e, 0xc5, 0x85, 0x6b, 0x7f, 0x86, 0xcb, 0xfe, 0x0c, 0x97, 0x5d,
+	0xbe, 0xe5, 0xa3, 0x5d, 0xf4, 0x6f, 0x3c, 0xf2, 0xd9, 0xa4, 0x84, 0x50, 0x78, 0xbc, 0xdd, 0x9c,
+	0xb9, 0xe7, 0xde, 0x73, 0xb8, 0x27, 0x19, 0x78, 0x62, 0xb9, 0xcc, 0x26, 0x9e, 0x6b, 0x85, 0xae,
+	0x61, 0xb9, 0xe1, 0xf2, 0x3d, 0x42, 0x4b, 0x63, 0x33, 0x36, 0xd8, 0x4f, 0x7d, 0x15, 0x12, 0x46,
+	0x44, 0xe9, 0x44, 0xd0, 0x33, 0x82, 0xbe, 0x19, 0x2b, 0x3d, 0x9b, 0x50, 0x9f, 0x50, 0xc3, 0xa7,
+	0x38, 0xe2, 0xfb, 0x14, 0x27, 0x0d, 0x4a, 0x3f, 0x29, 0xcc, 0x63, 0x64, 0x24, 0x20, 0x2d, 0x75,
+	0x31, 0xc1, 0x24, 0xb9, 0x8f, 0x4e, 0xc9, 0xad, 0xe6, 0xc1, 0x63, 0x93, 0xe2, 0x4f, 0x6b, 0xcb,
+	0x73, 0xa9, 0xf3, 0xf9, 0x07, 0x42, 0x4c, 0x94, 0xa0, 0xb5, 0x58, 0x33, 0x87, 0x84, 0x32, 0x37,
+	0xe0, 0x86, 0xc2, 0x2c, 0x45, 0xa2, 0x0c, 0x0f, 0x6c, 0x12, 0x30, 0x14, 0x30, 0xf9, 0x5e, 0x5c,
+	0xc8, 0xa0, 0xa8, 0xc0, 0x43, 0x67, 0x41, 0x1d, 0xb6, 0xc0, 0x54, 0xe6, 0x07, 0xfc, 0x50, 0x98,
+	0xe5, 0x78, 0xd2, 0xfe, 0x7d, 0xdc, 0x8e, 0xd2, 0x11, 0x5a, 0x1f, 0x7a, 0x67, 0x6a, 0x33, 0x44,
+	0x57, 0x24, 0xa0, 0x48, 0xfb, 0x00, 0x1d, 0x93, 0xe2, 0x8f, 0xee, 0x77, 0x94, 0xb8, 0x10, 0xa1,
+	0xf9, 0x2d, 0x24, 0x7e, 0xea, 0x21, 0x3e, 0x47, 0x0e, 0x58, 0x54, 0x9c, 0xbe, 0xcb, 0x1c, 0xa4,
+	0x70, 0x22, 0x44, 0x2a, 0x31, 0x49, 0x93, 0xa0, 0x5b, 0x1c, 0x94, 0x0b, 0x4c, 0xe1, 0x91, 0x49,
+	0xf1, 0x97, 0xc0, 0xbb, 0xbd, 0x84, 0x0c, 0x52, 0x79, 0x54, 0x2e, 0xf2, 0x87, 0x8b, 0xf7, 0xf9,
+	0x96, 0xf8, 0x3e, 0x0a, 0xd8, 0x1d, 0xec, 0xb3, 0x68, 0xb0, 0x59, 0x36, 0x58, 0xb1, 0xe9, 0xa2,
+	0x8f, 0xcc, 0xe3, 0xcb, 0x7f, 0x3c, 0xf0, 0x26, 0xc5, 0xa2, 0x03, 0x9d, 0x52, 0xee, 0xcf, 0xf5,
+	0xea, 0xaf, 0x4d, 0x3f, 0x8b, 0x4c, 0x31, 0x2e, 0x24, 0x66, 0x8a, 0xe2, 0x1c, 0x84, 0x53, 0xb0,
+	0x4f, 0x6b, 0xba, 0x73, 0x96, 0xf2, 0xe2, 0x12, 0x56, 0x2e, 0x80, 0xa0, 0x5d, 0x0c, 0xf6, 0x59,
+	0x4d, 0x73, 0x81, 0xa7, 0xe8, 0x97, 0xf1, 0x72, 0x19, 0x07, 0x3a, 0xa5, 0x64, 0xeb, 0x36, 0x56,
+	0x24, 0xd6, 0x6e, 0xac, 0x2a, 0x23, 0xe5, 0xfe, 0xaf, 0xe3, 0x76, 0xc4, 0xbd, 0x79, 0xfd, 0x7f,
+	0xaf, 0x72, 0xbb, 0xbd, 0xca, 0x5d, 0xef, 0x55, 0xee, 0xef, 0x41, 0x6d, 0xec, 0x0e, 0x6a, 0xe3,
+	0xea, 0xa0, 0x36, 0xbe, 0xaa, 0xd8, 0x65, 0xce, 0xda, 0xd2, 0x6d, 0xe2, 0x1b, 0x15, 0xaf, 0x88,
+	0xd5, 0x8a, 0x7f, 0xef, 0x57, 0x37, 0x01, 0x00, 0x00, 0xff, 0xff, 0x24, 0x01, 0xa2, 0x2c, 0x63,
+	0x04, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -172,6 +467,9 @@ const _ = grpc.SupportPackageIsVersion4
 type MsgClient interface {
 	// CreateGame create a game.
 	PublishTweet(ctx context.Context, in *MsgPublishTweet, opts ...grpc.CallOption) (*MsgPublishTweetResponse, error)
+	LikeTweet(ctx context.Context, in *MsgLikeTweet, opts ...grpc.CallOption) (*MsgLikeTweetResponse, error)
+	UnlikeTweet(ctx context.Context, in *MsgUnlikeTweet, opts ...grpc.CallOption) (*MsgUnlikeTweetResponse, error)
+	CommentTweet(ctx context.Context, in *MsgCommentTweet, opts ...grpc.CallOption) (*MsgCommentTweetResponse, error)
 }
 
 type msgClient struct {
@@ -191,10 +489,40 @@ func (c *msgClient) PublishTweet(ctx context.Context, in *MsgPublishTweet, opts 
 	return out, nil
 }
 
+func (c *msgClient) LikeTweet(ctx context.Context, in *MsgLikeTweet, opts ...grpc.CallOption) (*MsgLikeTweetResponse, error) {
+	out := new(MsgLikeTweetResponse)
+	err := c.cc.Invoke(ctx, "/bitcolibri.birdFeed.v1.Msg/LikeTweet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UnlikeTweet(ctx context.Context, in *MsgUnlikeTweet, opts ...grpc.CallOption) (*MsgUnlikeTweetResponse, error) {
+	out := new(MsgUnlikeTweetResponse)
+	err := c.cc.Invoke(ctx, "/bitcolibri.birdFeed.v1.Msg/UnlikeTweet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) CommentTweet(ctx context.Context, in *MsgCommentTweet, opts ...grpc.CallOption) (*MsgCommentTweetResponse, error) {
+	out := new(MsgCommentTweetResponse)
+	err := c.cc.Invoke(ctx, "/bitcolibri.birdFeed.v1.Msg/CommentTweet", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	// CreateGame create a game.
 	PublishTweet(context.Context, *MsgPublishTweet) (*MsgPublishTweetResponse, error)
+	LikeTweet(context.Context, *MsgLikeTweet) (*MsgLikeTweetResponse, error)
+	UnlikeTweet(context.Context, *MsgUnlikeTweet) (*MsgUnlikeTweetResponse, error)
+	CommentTweet(context.Context, *MsgCommentTweet) (*MsgCommentTweetResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -203,6 +531,15 @@ type UnimplementedMsgServer struct {
 
 func (*UnimplementedMsgServer) PublishTweet(ctx context.Context, req *MsgPublishTweet) (*MsgPublishTweetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PublishTweet not implemented")
+}
+func (*UnimplementedMsgServer) LikeTweet(ctx context.Context, req *MsgLikeTweet) (*MsgLikeTweetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LikeTweet not implemented")
+}
+func (*UnimplementedMsgServer) UnlikeTweet(ctx context.Context, req *MsgUnlikeTweet) (*MsgUnlikeTweetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnlikeTweet not implemented")
+}
+func (*UnimplementedMsgServer) CommentTweet(ctx context.Context, req *MsgCommentTweet) (*MsgCommentTweetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CommentTweet not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -227,6 +564,60 @@ func _Msg_PublishTweet_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_LikeTweet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgLikeTweet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).LikeTweet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bitcolibri.birdFeed.v1.Msg/LikeTweet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).LikeTweet(ctx, req.(*MsgLikeTweet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UnlikeTweet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUnlikeTweet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UnlikeTweet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bitcolibri.birdFeed.v1.Msg/UnlikeTweet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UnlikeTweet(ctx, req.(*MsgUnlikeTweet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_CommentTweet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCommentTweet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CommentTweet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bitcolibri.birdFeed.v1.Msg/CommentTweet",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CommentTweet(ctx, req.(*MsgCommentTweet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "bitcolibri.birdFeed.v1.Msg",
 	HandlerType: (*MsgServer)(nil),
@@ -234,6 +625,18 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PublishTweet",
 			Handler:    _Msg_PublishTweet_Handler,
+		},
+		{
+			MethodName: "LikeTweet",
+			Handler:    _Msg_LikeTweet_Handler,
+		},
+		{
+			MethodName: "UnlikeTweet",
+			Handler:    _Msg_UnlikeTweet_Handler,
+		},
+		{
+			MethodName: "CommentTweet",
+			Handler:    _Msg_CommentTweet_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -309,6 +712,202 @@ func (m *MsgPublishTweetResponse) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgLikeTweet) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgLikeTweet) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgLikeTweet) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.TweetID) > 0 {
+		i -= len(m.TweetID)
+		copy(dAtA[i:], m.TweetID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.TweetID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.From) > 0 {
+		i -= len(m.From)
+		copy(dAtA[i:], m.From)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.From)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgLikeTweetResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgLikeTweetResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgLikeTweetResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUnlikeTweet) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUnlikeTweet) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUnlikeTweet) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.TweetID) > 0 {
+		i -= len(m.TweetID)
+		copy(dAtA[i:], m.TweetID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.TweetID)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.From) > 0 {
+		i -= len(m.From)
+		copy(dAtA[i:], m.From)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.From)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgUnlikeTweetResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgUnlikeTweetResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgUnlikeTweetResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCommentTweet) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCommentTweet) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCommentTweet) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.TweetID) > 0 {
+		i -= len(m.TweetID)
+		copy(dAtA[i:], m.TweetID)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.TweetID)))
+		i--
+		dAtA[i] = 0x22
+	}
+	if len(m.Hashtags) > 0 {
+		for iNdEx := len(m.Hashtags) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.Hashtags[iNdEx])
+			copy(dAtA[i:], m.Hashtags[iNdEx])
+			i = encodeVarintTx(dAtA, i, uint64(len(m.Hashtags[iNdEx])))
+			i--
+			dAtA[i] = 0x1a
+		}
+	}
+	if len(m.Content) > 0 {
+		i -= len(m.Content)
+		copy(dAtA[i:], m.Content)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Content)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Author) > 0 {
+		i -= len(m.Author)
+		copy(dAtA[i:], m.Author)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Author)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgCommentTweetResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgCommentTweetResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgCommentTweetResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -344,6 +943,94 @@ func (m *MsgPublishTweet) Size() (n int) {
 }
 
 func (m *MsgPublishTweetResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgLikeTweet) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.From)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.TweetID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgLikeTweetResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgUnlikeTweet) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.From)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.TweetID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgUnlikeTweetResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
+func (m *MsgCommentTweet) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Author)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Content)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if len(m.Hashtags) > 0 {
+		for _, s := range m.Hashtags {
+			l = len(s)
+			n += 1 + l + sovTx(uint64(l))
+		}
+	}
+	l = len(m.TweetID)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgCommentTweetResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -531,6 +1218,562 @@ func (m *MsgPublishTweetResponse) Unmarshal(dAtA []byte) error {
 		}
 		if fieldNum <= 0 {
 			return fmt.Errorf("proto: MsgPublishTweetResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgLikeTweet) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgLikeTweet: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgLikeTweet: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field From", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.From = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TweetID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TweetID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgLikeTweetResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgLikeTweetResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgLikeTweetResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUnlikeTweet) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUnlikeTweet: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUnlikeTweet: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field From", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.From = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TweetID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TweetID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgUnlikeTweetResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgUnlikeTweetResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgUnlikeTweetResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCommentTweet) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCommentTweet: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCommentTweet: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Author", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Author = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Content", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Content = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Hashtags", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Hashtags = append(m.Hashtags, string(dAtA[iNdEx:postIndex]))
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field TweetID", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.TweetID = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgCommentTweetResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgCommentTweetResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgCommentTweetResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		default:

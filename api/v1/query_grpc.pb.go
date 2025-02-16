@@ -21,6 +21,7 @@ const _ = grpc.SupportPackageIsVersion7
 const (
 	Query_GetTweet_FullMethodName        = "/bitcolibri.birdFeed.v1.Query/GetTweet"
 	Query_GetAuthorTweets_FullMethodName = "/bitcolibri.birdFeed.v1.Query/GetAuthorTweets"
+	Query_GetTweetLikes_FullMethodName   = "/bitcolibri.birdFeed.v1.Query/GetTweetLikes"
 )
 
 // QueryClient is the client API for Query service.
@@ -29,6 +30,7 @@ const (
 type QueryClient interface {
 	GetTweet(ctx context.Context, in *QueryGetTweetRequest, opts ...grpc.CallOption) (*QueryGetTweetResponse, error)
 	GetAuthorTweets(ctx context.Context, in *QueryGetAuthorTweetsRequest, opts ...grpc.CallOption) (*QueryGetAuthorTweetsResponse, error)
+	GetTweetLikes(ctx context.Context, in *QueryGetTweetLikesRequest, opts ...grpc.CallOption) (*QueryGetTweetLikesResponse, error)
 }
 
 type queryClient struct {
@@ -57,12 +59,22 @@ func (c *queryClient) GetAuthorTweets(ctx context.Context, in *QueryGetAuthorTwe
 	return out, nil
 }
 
+func (c *queryClient) GetTweetLikes(ctx context.Context, in *QueryGetTweetLikesRequest, opts ...grpc.CallOption) (*QueryGetTweetLikesResponse, error) {
+	out := new(QueryGetTweetLikesResponse)
+	err := c.cc.Invoke(ctx, Query_GetTweetLikes_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
 type QueryServer interface {
 	GetTweet(context.Context, *QueryGetTweetRequest) (*QueryGetTweetResponse, error)
 	GetAuthorTweets(context.Context, *QueryGetAuthorTweetsRequest) (*QueryGetAuthorTweetsResponse, error)
+	GetTweetLikes(context.Context, *QueryGetTweetLikesRequest) (*QueryGetTweetLikesResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -75,6 +87,9 @@ func (UnimplementedQueryServer) GetTweet(context.Context, *QueryGetTweetRequest)
 }
 func (UnimplementedQueryServer) GetAuthorTweets(context.Context, *QueryGetAuthorTweetsRequest) (*QueryGetAuthorTweetsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAuthorTweets not implemented")
+}
+func (UnimplementedQueryServer) GetTweetLikes(context.Context, *QueryGetTweetLikesRequest) (*QueryGetTweetLikesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTweetLikes not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -125,6 +140,24 @@ func _Query_GetAuthorTweets_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetTweetLikes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetTweetLikesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetTweetLikes(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_GetTweetLikes_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetTweetLikes(ctx, req.(*QueryGetTweetLikesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -139,6 +172,10 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAuthorTweets",
 			Handler:    _Query_GetAuthorTweets_Handler,
+		},
+		{
+			MethodName: "GetTweetLikes",
+			Handler:    _Query_GetTweetLikes_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

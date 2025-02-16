@@ -20,6 +20,9 @@ const _ = grpc.SupportPackageIsVersion7
 
 const (
 	Msg_PublishTweet_FullMethodName = "/bitcolibri.birdFeed.v1.Msg/PublishTweet"
+	Msg_LikeTweet_FullMethodName    = "/bitcolibri.birdFeed.v1.Msg/LikeTweet"
+	Msg_UnlikeTweet_FullMethodName  = "/bitcolibri.birdFeed.v1.Msg/UnlikeTweet"
+	Msg_CommentTweet_FullMethodName = "/bitcolibri.birdFeed.v1.Msg/CommentTweet"
 )
 
 // MsgClient is the client API for Msg service.
@@ -28,6 +31,9 @@ const (
 type MsgClient interface {
 	// CreateGame create a game.
 	PublishTweet(ctx context.Context, in *MsgPublishTweet, opts ...grpc.CallOption) (*MsgPublishTweetResponse, error)
+	LikeTweet(ctx context.Context, in *MsgLikeTweet, opts ...grpc.CallOption) (*MsgLikeTweetResponse, error)
+	UnlikeTweet(ctx context.Context, in *MsgUnlikeTweet, opts ...grpc.CallOption) (*MsgUnlikeTweetResponse, error)
+	CommentTweet(ctx context.Context, in *MsgCommentTweet, opts ...grpc.CallOption) (*MsgCommentTweetResponse, error)
 }
 
 type msgClient struct {
@@ -47,12 +53,42 @@ func (c *msgClient) PublishTweet(ctx context.Context, in *MsgPublishTweet, opts 
 	return out, nil
 }
 
+func (c *msgClient) LikeTweet(ctx context.Context, in *MsgLikeTweet, opts ...grpc.CallOption) (*MsgLikeTweetResponse, error) {
+	out := new(MsgLikeTweetResponse)
+	err := c.cc.Invoke(ctx, Msg_LikeTweet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UnlikeTweet(ctx context.Context, in *MsgUnlikeTweet, opts ...grpc.CallOption) (*MsgUnlikeTweetResponse, error) {
+	out := new(MsgUnlikeTweetResponse)
+	err := c.cc.Invoke(ctx, Msg_UnlikeTweet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) CommentTweet(ctx context.Context, in *MsgCommentTweet, opts ...grpc.CallOption) (*MsgCommentTweetResponse, error) {
+	out := new(MsgCommentTweetResponse)
+	err := c.cc.Invoke(ctx, Msg_CommentTweet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
 type MsgServer interface {
 	// CreateGame create a game.
 	PublishTweet(context.Context, *MsgPublishTweet) (*MsgPublishTweetResponse, error)
+	LikeTweet(context.Context, *MsgLikeTweet) (*MsgLikeTweetResponse, error)
+	UnlikeTweet(context.Context, *MsgUnlikeTweet) (*MsgUnlikeTweetResponse, error)
+	CommentTweet(context.Context, *MsgCommentTweet) (*MsgCommentTweetResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -62,6 +98,15 @@ type UnimplementedMsgServer struct {
 
 func (UnimplementedMsgServer) PublishTweet(context.Context, *MsgPublishTweet) (*MsgPublishTweetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PublishTweet not implemented")
+}
+func (UnimplementedMsgServer) LikeTweet(context.Context, *MsgLikeTweet) (*MsgLikeTweetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LikeTweet not implemented")
+}
+func (UnimplementedMsgServer) UnlikeTweet(context.Context, *MsgUnlikeTweet) (*MsgUnlikeTweetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnlikeTweet not implemented")
+}
+func (UnimplementedMsgServer) CommentTweet(context.Context, *MsgCommentTweet) (*MsgCommentTweetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CommentTweet not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -94,6 +139,60 @@ func _Msg_PublishTweet_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_LikeTweet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgLikeTweet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).LikeTweet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_LikeTweet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).LikeTweet(ctx, req.(*MsgLikeTweet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UnlikeTweet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUnlikeTweet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UnlikeTweet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_UnlikeTweet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UnlikeTweet(ctx, req.(*MsgUnlikeTweet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_CommentTweet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCommentTweet)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CommentTweet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_CommentTweet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CommentTweet(ctx, req.(*MsgCommentTweet))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -104,6 +203,18 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "PublishTweet",
 			Handler:    _Msg_PublishTweet_Handler,
+		},
+		{
+			MethodName: "LikeTweet",
+			Handler:    _Msg_LikeTweet_Handler,
+		},
+		{
+			MethodName: "UnlikeTweet",
+			Handler:    _Msg_UnlikeTweet_Handler,
+		},
+		{
+			MethodName: "CommentTweet",
+			Handler:    _Msg_CommentTweet_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

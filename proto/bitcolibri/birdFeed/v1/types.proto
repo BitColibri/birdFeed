@@ -14,11 +14,26 @@ message GenesisState {
   // params defines all the parameters of the module.
   Params params = 1 [(gogoproto.nullable) = false];
   repeated IndexedTweet indexedTweets = 2 [(gogoproto.nullable) = false];
+  repeated IndexedLike indexedLikes = 3  [(gogoproto.nullable) = false];
+  repeated IndexedComment indexedComments = 4 [(gogoproto.nullable) = false];
 }
 
 message IndexedTweet {
   string index = 1;
   Tweet tweet = 2;
+}
+
+message IndexedLike {
+  string k1 = 1;
+  string k2 = 2;
+  bool like = 3;
+}
+
+message IndexedComment {
+  string k1 = 1;
+  string k2 = 2;
+  string k3 = 3;
+  bool comment = 4;
 }
 
 message Tweet {
@@ -27,6 +42,6 @@ message Tweet {
   int64 timestamp = 3;
   repeated string hashtags = 4;
   int64 likes = 5;
-  repeated Tweet responses = 6;
+  int64 responses = 6;
   string parentId = 7;
 }

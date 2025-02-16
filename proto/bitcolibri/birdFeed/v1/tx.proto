@@ -1,18 +1,23 @@
 syntax = "proto3";
 package bitcolibri.birdFeed.v1;
 
-option go_package = "github.com/bitcolibri/birdFeed";
-
 import "cosmos/msg/v1/msg.proto";
-import "gogoproto/gogo.proto";
 import "cosmos_proto/cosmos.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/bitcolibri/birdFeed";
 
 service Msg {
   option (cosmos.msg.v1.service) = true;
 
   // CreateGame create a game.
-  rpc PublishTweet(MsgPublishTweet)
-      returns (MsgPublishTweetResponse);
+  rpc PublishTweet(MsgPublishTweet) returns (MsgPublishTweetResponse);
+
+  rpc LikeTweet(MsgLikeTweet) returns (MsgLikeTweetResponse);
+
+  rpc UnlikeTweet(MsgUnlikeTweet) returns (MsgUnlikeTweetResponse);
+
+  rpc CommentTweet(MsgCommentTweet) returns (MsgCommentTweetResponse);
 }
 
 message MsgPublishTweet {
@@ -20,9 +25,38 @@ message MsgPublishTweet {
 
   // creator is the message sender.
   string author = 1;
-  string content = 2 ;
+  string content = 2;
   repeated string hashtags = 3;
 }
 
 // MsgCreateGameResponse defines the Msg/CreateGame response type.
 message MsgPublishTweetResponse {}
+
+message MsgLikeTweet {
+  option (cosmos.msg.v1.signer) = "from";
+
+  string from = 1;
+  string tweetID = 2;
+}
+
+message MsgLikeTweetResponse {}
+
+message MsgUnlikeTweet {
+  option (cosmos.msg.v1.signer) = "from";
+
+  string from = 1;
+  string tweetID = 2;
+}
+
+message MsgUnlikeTweetResponse {}
+
+message MsgCommentTweet {
+  option (cosmos.msg.v1.signer) = "author";
+
+  string author = 1;
+  string content = 2;
+  repeated string hashtags = 3;
+  string tweetID = 4;
+}
+
+message MsgCommentTweetResponse {}
