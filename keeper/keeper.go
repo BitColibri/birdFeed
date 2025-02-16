@@ -20,9 +20,10 @@ type Keeper struct {
 	authority string
 
 	// state management
-	Schema collections.Schema
-	Params collections.Item[birdFeed.Params]
-	Tweets collections.Map[string, birdFeed.Tweet]
+	Schema       collections.Schema
+	Params       collections.Item[birdFeed.Params]
+	Tweets       collections.Map[string, birdFeed.Tweet]
+	AuthorTweets collections.Map[collections.Pair[string, string], bool] // (author, tweetID) -> Tweet
 }
 
 // NewKeeper creates a new Keeper instance
@@ -38,6 +39,10 @@ func NewKeeper(cdc codec.BinaryCodec, addressCodec address.Codec, storeService s
 		authority:    authority,
 		Params:       collections.NewItem(sb, birdFeed.ParamsKey, "params", codec.CollValue[birdFeed.Params](cdc)),
 		Tweets:       collections.NewMap(sb, birdFeed.TweetsKey, "tweets", collections.StringKey, codec.CollValue[birdFeed.Tweet](cdc)),
+		AuthorTweets: collections.NewMap(sb, birdFeed.AuthorTweetsKey, "author_tweets",
+			collections.PairKeyCodec(collections.StringKey, collections.StringKey),
+			collections.BoolValue,
+		),
 	}
 
 	schema, err := sb.Build()

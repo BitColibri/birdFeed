@@ -118,9 +118,99 @@ func (m *QueryGetTweetResponse) GetTweet() *Tweet {
 	return nil
 }
 
+type QueryGetAuthorTweetsRequest struct {
+	Author string `protobuf:"bytes,1,opt,name=author,proto3" json:"author,omitempty"`
+}
+
+func (m *QueryGetAuthorTweetsRequest) Reset()         { *m = QueryGetAuthorTweetsRequest{} }
+func (m *QueryGetAuthorTweetsRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetAuthorTweetsRequest) ProtoMessage()    {}
+func (*QueryGetAuthorTweetsRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8a4f1e2044a41033, []int{2}
+}
+func (m *QueryGetAuthorTweetsRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetAuthorTweetsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetAuthorTweetsRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetAuthorTweetsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetAuthorTweetsRequest.Merge(m, src)
+}
+func (m *QueryGetAuthorTweetsRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetAuthorTweetsRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetAuthorTweetsRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetAuthorTweetsRequest proto.InternalMessageInfo
+
+func (m *QueryGetAuthorTweetsRequest) GetAuthor() string {
+	if m != nil {
+		return m.Author
+	}
+	return ""
+}
+
+type QueryGetAuthorTweetsResponse struct {
+	Tweets []*Tweet `protobuf:"bytes,1,rep,name=tweets,proto3" json:"tweets,omitempty"`
+}
+
+func (m *QueryGetAuthorTweetsResponse) Reset()         { *m = QueryGetAuthorTweetsResponse{} }
+func (m *QueryGetAuthorTweetsResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetAuthorTweetsResponse) ProtoMessage()    {}
+func (*QueryGetAuthorTweetsResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8a4f1e2044a41033, []int{3}
+}
+func (m *QueryGetAuthorTweetsResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetAuthorTweetsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetAuthorTweetsResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetAuthorTweetsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetAuthorTweetsResponse.Merge(m, src)
+}
+func (m *QueryGetAuthorTweetsResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetAuthorTweetsResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetAuthorTweetsResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetAuthorTweetsResponse proto.InternalMessageInfo
+
+func (m *QueryGetAuthorTweetsResponse) GetTweets() []*Tweet {
+	if m != nil {
+		return m.Tweets
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryGetTweetRequest)(nil), "bitcolibri.birdFeed.v1.QueryGetTweetRequest")
 	proto.RegisterType((*QueryGetTweetResponse)(nil), "bitcolibri.birdFeed.v1.QueryGetTweetResponse")
+	proto.RegisterType((*QueryGetAuthorTweetsRequest)(nil), "bitcolibri.birdFeed.v1.QueryGetAuthorTweetsRequest")
+	proto.RegisterType((*QueryGetAuthorTweetsResponse)(nil), "bitcolibri.birdFeed.v1.QueryGetAuthorTweetsResponse")
 }
 
 func init() {
@@ -128,26 +218,32 @@ func init() {
 }
 
 var fileDescriptor_8a4f1e2044a41033 = []byte{
-	// 301 bytes of a gzipped FileDescriptorProto
+	// 392 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x52, 0x4a, 0xca, 0x2c, 0x49,
 	0xce, 0xcf, 0xc9, 0x4c, 0x2a, 0xca, 0xd4, 0x4f, 0xca, 0x2c, 0x4a, 0x71, 0x4b, 0x4d, 0x4d, 0xd1,
 	0x2f, 0x33, 0xd4, 0x2f, 0x2c, 0x4d, 0x2d, 0xaa, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12,
 	0x43, 0xa8, 0xd1, 0x83, 0xa9, 0xd1, 0x2b, 0x33, 0x94, 0xc2, 0xa5, 0xb7, 0xa4, 0xb2, 0x20, 0xb5,
-	0x18, 0xa2, 0x57, 0x4a, 0x26, 0x3d, 0x3f, 0x3f, 0x3d, 0x27, 0x55, 0x3f, 0xb1, 0x20, 0x53, 0x3f,
-	0x31, 0x2f, 0x2f, 0xbf, 0x24, 0xb1, 0x24, 0x33, 0x3f, 0x0f, 0x26, 0x2b, 0x9d, 0x9c, 0x5f, 0x9c,
-	0x9b, 0x5f, 0x0c, 0xb1, 0x0d, 0xcd, 0x5a, 0x29, 0x91, 0xf4, 0xfc, 0xf4, 0x7c, 0x30, 0x53, 0x1f,
-	0xc4, 0x82, 0x88, 0x2a, 0xa9, 0x71, 0x89, 0x04, 0x82, 0x14, 0xb9, 0xa7, 0x96, 0x84, 0x94, 0xa7,
-	0xa6, 0x96, 0x04, 0xa5, 0x16, 0x96, 0xa6, 0x16, 0x97, 0x08, 0xf1, 0x71, 0x31, 0x65, 0xa6, 0x48,
-	0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0x31, 0x65, 0xa6, 0x28, 0xf9, 0x70, 0x89, 0xa2, 0xa9, 0x2b,
-	0x2e, 0xc8, 0xcf, 0x2b, 0x4e, 0x15, 0x32, 0xe6, 0x62, 0x2d, 0x01, 0x09, 0x80, 0xd5, 0x72, 0x1b,
-	0xc9, 0xea, 0x61, 0xf7, 0x9d, 0x1e, 0x44, 0x17, 0x44, 0xad, 0xd1, 0x22, 0x46, 0x2e, 0x56, 0xb0,
-	0x71, 0x42, 0x33, 0x18, 0xb9, 0x38, 0x60, 0x66, 0x0a, 0xe9, 0xe0, 0xd2, 0x8c, 0xcd, 0x89, 0x52,
-	0xba, 0x44, 0xaa, 0x86, 0x38, 0x54, 0x49, 0xbf, 0xe3, 0xf9, 0x06, 0x2d, 0xc6, 0xa6, 0xcb, 0x4f,
-	0x26, 0x33, 0xa9, 0x08, 0x29, 0xe9, 0xe3, 0x0a, 0x6c, 0x90, 0x1e, 0xfd, 0xea, 0xcc, 0x94, 0x5a,
-	0x27, 0x8b, 0x13, 0x8f, 0xe4, 0x18, 0x2f, 0x3c, 0x92, 0x63, 0x7c, 0xf0, 0x48, 0x8e, 0x71, 0xc2,
-	0x63, 0x39, 0x86, 0x0b, 0x8f, 0xe5, 0x18, 0x6e, 0x3c, 0x96, 0x63, 0x88, 0x92, 0x4b, 0xcf, 0x2c,
-	0xc9, 0x28, 0x4d, 0xd2, 0x4b, 0xce, 0xcf, 0xc5, 0x66, 0x4e, 0x12, 0x1b, 0x38, 0x6c, 0x8d, 0x01,
-	0x01, 0x00, 0x00, 0xff, 0xff, 0xb6, 0x22, 0x1d, 0x8f, 0x0e, 0x02, 0x00, 0x00,
+	0x18, 0xa2, 0x57, 0x4a, 0x3a, 0x39, 0xbf, 0x38, 0x37, 0xbf, 0x18, 0x62, 0x1e, 0x9a, 0xc1, 0x52,
+	0x22, 0xe9, 0xf9, 0xe9, 0xf9, 0x60, 0xa6, 0x3e, 0x88, 0x05, 0x15, 0x95, 0x49, 0xcf, 0xcf, 0x4f,
+	0xcf, 0x49, 0xd5, 0x4f, 0x2c, 0xc8, 0xd4, 0x4f, 0xcc, 0xcb, 0xcb, 0x2f, 0x49, 0x2c, 0xc9, 0xcc,
+	0xcf, 0x83, 0x1a, 0xa8, 0xa4, 0xc6, 0x25, 0x12, 0x08, 0x32, 0xc2, 0x3d, 0xb5, 0x24, 0xa4, 0x3c,
+	0x35, 0xb5, 0x24, 0x28, 0xb5, 0xb0, 0x34, 0xb5, 0xb8, 0x44, 0x88, 0x8f, 0x8b, 0x29, 0x33, 0x45,
+	0x82, 0x51, 0x81, 0x51, 0x83, 0x33, 0x88, 0x29, 0x33, 0x45, 0xc9, 0x87, 0x4b, 0x14, 0x4d, 0x5d,
+	0x71, 0x41, 0x7e, 0x5e, 0x71, 0xaa, 0x90, 0x31, 0x17, 0x6b, 0x09, 0x48, 0x00, 0xac, 0x96, 0xdb,
+	0x48, 0x56, 0x0f, 0xbb, 0xef, 0xf4, 0x20, 0xba, 0x20, 0x6a, 0x95, 0x4c, 0xb9, 0xa4, 0x61, 0xa6,
+	0x39, 0x96, 0x96, 0x64, 0xe4, 0x17, 0x81, 0x65, 0x8b, 0x61, 0x96, 0x8b, 0x71, 0xb1, 0x25, 0x82,
+	0x85, 0xa1, 0x0e, 0x80, 0xf2, 0x94, 0x42, 0xb9, 0x64, 0xb0, 0x6b, 0x83, 0xba, 0xc5, 0x94, 0x8b,
+	0x0d, 0x6c, 0x7e, 0xb1, 0x04, 0xa3, 0x02, 0x33, 0x61, 0xc7, 0x40, 0x15, 0x1b, 0xdd, 0x63, 0xe2,
+	0x62, 0x05, 0x9b, 0x2b, 0x34, 0x83, 0x91, 0x8b, 0x03, 0xe6, 0x43, 0x21, 0x1d, 0x5c, 0xba, 0xb1,
+	0x05, 0x98, 0x94, 0x2e, 0x91, 0xaa, 0x21, 0x4e, 0x55, 0xd2, 0xef, 0x78, 0xbe, 0x41, 0x8b, 0xb1,
+	0xe9, 0xf2, 0x93, 0xc9, 0x4c, 0x2a, 0x42, 0x4a, 0xfa, 0xb8, 0xa2, 0x1e, 0xa4, 0x47, 0xbf, 0x3a,
+	0x33, 0xa5, 0x56, 0x68, 0x27, 0x23, 0x17, 0x3f, 0x9a, 0xbf, 0x85, 0x8c, 0x09, 0xd9, 0x89, 0x25,
+	0x70, 0xa5, 0x4c, 0x48, 0xd3, 0x04, 0x75, 0xaf, 0x35, 0xc2, 0xbd, 0x06, 0x42, 0x7a, 0xb8, 0xdc,
+	0x0b, 0x89, 0x27, 0xfd, 0x6a, 0x08, 0x5d, 0x0b, 0x71, 0x7f, 0xb1, 0x93, 0xc5, 0x89, 0x47, 0x72,
+	0x8c, 0x17, 0x1e, 0xc9, 0x31, 0x3e, 0x78, 0x24, 0xc7, 0x38, 0xe1, 0xb1, 0x1c, 0xc3, 0x85, 0xc7,
+	0x72, 0x0c, 0x37, 0x1e, 0xcb, 0x31, 0x44, 0xc9, 0xa5, 0x67, 0x96, 0x64, 0x94, 0x26, 0xe9, 0x25,
+	0xe7, 0xe7, 0x62, 0x33, 0x33, 0x89, 0x0d, 0x9c, 0x4a, 0x8d, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff,
+	0x75, 0x02, 0x06, 0x20, 0x58, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -163,6 +259,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type QueryClient interface {
 	GetTweet(ctx context.Context, in *QueryGetTweetRequest, opts ...grpc.CallOption) (*QueryGetTweetResponse, error)
+	GetAuthorTweets(ctx context.Context, in *QueryGetAuthorTweetsRequest, opts ...grpc.CallOption) (*QueryGetAuthorTweetsResponse, error)
 }
 
 type queryClient struct {
@@ -182,9 +279,19 @@ func (c *queryClient) GetTweet(ctx context.Context, in *QueryGetTweetRequest, op
 	return out, nil
 }
 
+func (c *queryClient) GetAuthorTweets(ctx context.Context, in *QueryGetAuthorTweetsRequest, opts ...grpc.CallOption) (*QueryGetAuthorTweetsResponse, error) {
+	out := new(QueryGetAuthorTweetsResponse)
+	err := c.cc.Invoke(ctx, "/bitcolibri.birdFeed.v1.Query/GetAuthorTweets", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	GetTweet(context.Context, *QueryGetTweetRequest) (*QueryGetTweetResponse, error)
+	GetAuthorTweets(context.Context, *QueryGetAuthorTweetsRequest) (*QueryGetAuthorTweetsResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -193,6 +300,9 @@ type UnimplementedQueryServer struct {
 
 func (*UnimplementedQueryServer) GetTweet(ctx context.Context, req *QueryGetTweetRequest) (*QueryGetTweetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetTweet not implemented")
+}
+func (*UnimplementedQueryServer) GetAuthorTweets(ctx context.Context, req *QueryGetAuthorTweetsRequest) (*QueryGetAuthorTweetsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAuthorTweets not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -217,6 +327,24 @@ func _Query_GetTweet_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_GetAuthorTweets_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetAuthorTweetsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).GetAuthorTweets(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/bitcolibri.birdFeed.v1.Query/GetAuthorTweets",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).GetAuthorTweets(ctx, req.(*QueryGetAuthorTweetsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "bitcolibri.birdFeed.v1.Query",
 	HandlerType: (*QueryServer)(nil),
@@ -224,6 +352,10 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetTweet",
 			Handler:    _Query_GetTweet_Handler,
+		},
+		{
+			MethodName: "GetAuthorTweets",
+			Handler:    _Query_GetAuthorTweets_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -295,6 +427,73 @@ func (m *QueryGetTweetResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetAuthorTweetsRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetAuthorTweetsRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetAuthorTweetsRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Author) > 0 {
+		i -= len(m.Author)
+		copy(dAtA[i:], m.Author)
+		i = encodeVarintQuery(dAtA, i, uint64(len(m.Author)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetAuthorTweetsResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetAuthorTweetsResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetAuthorTweetsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Tweets) > 0 {
+		for iNdEx := len(m.Tweets) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Tweets[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -328,6 +527,34 @@ func (m *QueryGetTweetResponse) Size() (n int) {
 	if m.Tweet != nil {
 		l = m.Tweet.Size()
 		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetAuthorTweetsRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Author)
+	if l > 0 {
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryGetAuthorTweetsResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Tweets) > 0 {
+		for _, e := range m.Tweets {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
 	}
 	return n
 }
@@ -482,6 +709,172 @@ func (m *QueryGetTweetResponse) Unmarshal(dAtA []byte) error {
 				m.Tweet = &Tweet{}
 			}
 			if err := m.Tweet.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetAuthorTweetsRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetAuthorTweetsRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetAuthorTweetsRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Author", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Author = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetAuthorTweetsResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetAuthorTweetsResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetAuthorTweetsResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Tweets", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Tweets = append(m.Tweets, &Tweet{})
+			if err := m.Tweets[len(m.Tweets)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

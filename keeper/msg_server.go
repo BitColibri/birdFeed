@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"time"
 
+	"cosmossdk.io/collections"
 	"github.com/bitcolibri/birdFeed"
 )
 
@@ -32,9 +33,26 @@ func (s msgServer) PublishTweet(ctx context.Context, msg *birdFeed.MsgPublishTwe
 	if err := tweet.Validate(); err != nil {
 		return nil, err
 	}
-	if err := s.Tweets.Set(ctx, tweetID, tweet); err != nil {
+	if err := s.saveTweet(ctx, tweet, tweetID); err != nil {
+		return nil, err
+	}
+
+	if err := s.saveTweet(ctx, tweet, tweetID); err != nil {
 		return nil, err
 	}
 
 	return &birdFeed.MsgPublishTweetResponse{}, nil
+}
+
+func (s msgServer) saveTweet(ctx context.Context, tweet birdFeed.Tweet, tweetID string) error {
+	if err := s.Tweets.Set(ctx, tweetID, tweet); err != nil {
+		return err
+	}
+
+	authorTweetsKey := collections.Join(tweet.Author, tweetID)
+	if err := s.AuthorTweets.Set(ctx, authorTweetsKey, true); err != nil {
+		return err
+	}
+
+	return nil
 }

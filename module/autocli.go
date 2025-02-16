@@ -19,6 +19,14 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 						{ProtoField: "id"},
 					},
 				},
+				{
+					RpcMethod: "GetAuthorTweets",
+					Use:       "author-tweets author",
+					Short:     "Get tweets by author",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{
+						{ProtoField: "author"},
+					},
+				},
 			},
 		},
 		Tx: &autocliv1.ServiceCommandDescriptor{
