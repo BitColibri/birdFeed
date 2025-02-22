@@ -17,8 +17,9 @@ message GenesisState {
   repeated IndexedFollow indexedFollows = 3 [(gogoproto.nullable) = false];
   repeated IndexedFollow indexedFollowers = 4 [(gogoproto.nullable) = false];
   repeated IndexedTweet indexedTweets = 5 [(gogoproto.nullable) = false];
-  repeated IndexedLike indexedLikes = 6 [(gogoproto.nullable) = false];
-  repeated IndexedComment indexedComments = 7 [(gogoproto.nullable) = false];
+  repeated IndexedAuthorTweets indexedAuthorTweets = 6 [(gogoproto.nullable) = false];
+  repeated IndexedLike indexedLikes = 7 [(gogoproto.nullable) = false];
+  repeated IndexedComment indexedComments = 8 [(gogoproto.nullable) = false];
 }
 
 message IndexedUser {
@@ -39,14 +40,17 @@ message IndexedTweet {
 message IndexedLike {
   string k1 = 1;
   string k2 = 2;
-  bool like = 3;
+}
+
+message IndexedAuthorTweets {
+  string k1 = 1;
+  string k2 = 2;
 }
 
 message IndexedComment {
   string k1 = 1;
   string k2 = 2;
   string k3 = 3;
-  bool comment = 4;
 }
 
 message Tweet {

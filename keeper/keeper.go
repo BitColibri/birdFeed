@@ -26,9 +26,9 @@ type Keeper struct {
 	Followers    collections.KeySet[collections.Pair[string, string]]
 	Follows      collections.KeySet[collections.Pair[string, string]]
 	Tweets       collections.Map[string, birdFeed.Tweet]
-	AuthorTweets collections.Map[collections.Pair[string, string], bool]
-	Likes        collections.Map[collections.Pair[string, string], bool]
-	Comments     collections.Map[collections.Triple[string, string, string], bool]
+	AuthorTweets collections.KeySet[collections.Pair[string, string]]
+	Likes        collections.KeySet[collections.Pair[string, string]]
+	Comments     collections.KeySet[collections.Triple[string, string, string]]
 }
 
 // NewKeeper creates a new Keeper instance
@@ -47,17 +47,14 @@ func NewKeeper(cdc codec.BinaryCodec, addressCodec address.Codec, storeService s
 		Followers:    collections.NewKeySet(sb, birdFeed.FollowersKey, "followers", collections.PairKeyCodec(collections.StringKey, collections.StringKey)),
 		Follows:      collections.NewKeySet(sb, birdFeed.FollowsKey, "follows", collections.PairKeyCodec(collections.StringKey, collections.StringKey)),
 		Tweets:       collections.NewMap(sb, birdFeed.TweetsKey, "tweets", collections.StringKey, codec.CollValue[birdFeed.Tweet](cdc)),
-		AuthorTweets: collections.NewMap(sb, birdFeed.AuthorTweetsKey, "author_tweets",
+		AuthorTweets: collections.NewKeySet(sb, birdFeed.AuthorTweetsKey, "author_tweets",
 			collections.PairKeyCodec(collections.StringKey, collections.StringKey),
-			collections.BoolValue,
 		),
-		Likes: collections.NewMap(sb, birdFeed.LikesKey, "likes",
+		Likes: collections.NewKeySet(sb, birdFeed.LikesKey, "likes",
 			collections.PairKeyCodec(collections.StringKey, collections.StringKey),
-			collections.BoolValue,
 		),
-		Comments: collections.NewMap(sb, birdFeed.CommentsKey, "comments",
+		Comments: collections.NewKeySet(sb, birdFeed.CommentsKey, "comments",
 			collections.TripleKeyCodec(collections.StringKey, collections.StringKey, collections.StringKey),
-			collections.BoolValue,
 		),
 	}
 

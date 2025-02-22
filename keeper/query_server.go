@@ -33,7 +33,7 @@ func (s queryServer) GetTweet(ctx context.Context, msg *birdFeed.QueryGetTweetRe
 
 	var comments []*birdFeed.Tweet
 	rng := collections.NewPrefixedTripleRange[string, string, string](msg.Id)
-	err = s.k.Comments.Walk(ctx, rng, func(key collections.Triple[string, string, string], _ bool) (bool, error) {
+	err = s.k.Comments.Walk(ctx, rng, func(key collections.Triple[string, string, string]) (bool, error) {
 		fmt.Printf("Found comment key: K1=%s, K2=%s, K3=%s\n", key.K1(), key.K2(), key.K3())
 
 		commentId := key.K3()
@@ -58,7 +58,7 @@ func (s queryServer) GetAuthorTweets(ctx context.Context, msg *birdFeed.QueryGet
 	var tweets []*birdFeed.Tweet
 
 	rng := collections.NewPrefixedPairRange[string, string](msg.Author)
-	err := s.k.AuthorTweets.Walk(ctx, rng, func(key collections.Pair[string, string], _ bool) (bool, error) {
+	err := s.k.AuthorTweets.Walk(ctx, rng, func(key collections.Pair[string, string]) (bool, error) {
 		tweetID := key.K2()
 
 		tweet, err := s.k.Tweets.Get(ctx, tweetID)
@@ -78,7 +78,7 @@ func (s queryServer) GetTweetLikes(ctx context.Context, msg *birdFeed.QueryGetTw
 	var likes []string
 
 	rng := collections.NewPrefixedPairRange[string, string](msg.Id)
-	err := s.k.Likes.Walk(ctx, rng, func(key collections.Pair[string, string], _ bool) (bool, error) {
+	err := s.k.Likes.Walk(ctx, rng, func(key collections.Pair[string, string]) (bool, error) {
 		likes = append(likes, key.K2())
 		return false, nil
 	})

@@ -161,7 +161,7 @@ func (s msgServer) RemoveTweet(ctx context.Context, msg *birdFeed.MsgRemoveTweet
 	}
 
 	likesRange := collections.NewPrefixedPairRange[string, string](msg.TweetID)
-	err = s.Likes.Walk(ctx, likesRange, func(key collections.Pair[string, string], value bool) (stop bool, err error) {
+	err = s.Likes.Walk(ctx, likesRange, func(key collections.Pair[string, string]) (stop bool, err error) {
 		if err := s.Likes.Remove(ctx, key); err != nil {
 			return false, err
 		}
@@ -183,7 +183,7 @@ func (s msgServer) LikeTweet(ctx context.Context, msg *birdFeed.MsgLikeTweet) (*
 
 	// check if user has already liked the tweet
 	likeKey := collections.Join(msg.TweetID, msg.From)
-	liked, err := s.Likes.Get(ctx, likeKey)
+	liked, err := s.Likes.Has(ctx, likeKey)
 	if err != nil {
 		if !errors.Is(err, collections.ErrNotFound) {
 			return nil, err
@@ -194,7 +194,7 @@ func (s msgServer) LikeTweet(ctx context.Context, msg *birdFeed.MsgLikeTweet) (*
 	}
 
 	// set the like
-	if err := s.Likes.Set(ctx, likeKey, true); err != nil {
+	if err := s.Likes.Set(ctx, likeKey); err != nil {
 		return nil, err
 	}
 
@@ -218,7 +218,7 @@ func (s msgServer) UnlikeTweet(ctx context.Context, msg *birdFeed.MsgUnlikeTweet
 
 	// check if user has already liked the tweet
 	likeKey := collections.Join(msg.TweetID, msg.From)
-	liked, err := s.Likes.Get(ctx, likeKey)
+	liked, err := s.Likes.Has(ctx, likeKey)
 	if err != nil {
 		return nil, err
 	}
@@ -260,7 +260,7 @@ func (s msgServer) CommentTweet(ctx context.Context, msg *birdFeed.MsgCommentTwe
 
 	tweetID := fmt.Sprintf("%x", sha256.Sum256([]byte(fmt.Sprintf("%s:%s:%d", msg.Author, msg.Content, timeStamp))))
 	commentID := collections.Join3(msg.TweetID, msg.Author, tweetID)
-	if err := s.Comments.Set(ctx, commentID, true); err != nil {
+	if err := s.Comments.Set(ctx, commentID); err != nil {
 		return nil, err
 	}
 
@@ -283,7 +283,7 @@ func (s msgServer) saveTweet(ctx context.Context, tweet birdFeed.Tweet, tweetID 
 	}
 
 	authorTweetsKey := collections.Join(tweet.Author, tweetID)
-	if err := s.AuthorTweets.Set(ctx, authorTweetsKey, true); err != nil {
+	if err := s.AuthorTweets.Set(ctx, authorTweetsKey); err != nil {
 		return err
 	}
 
