@@ -39,16 +39,22 @@ func (k *Keeper) InitGenesis(ctx context.Context, data *birdFeed.GenesisState) e
 		}
 	}
 
+	for _, authorTweet := range data.IndexedAuthorTweets {
+		key := collections.Join(authorTweet.K1, authorTweet.K2)
+		if err := k.AuthorTweets.Set(ctx, key); err != nil {
+			return err
+		}
+	}
 	for _, like := range data.IndexedLikes {
 		key := collections.Join(like.K1, like.K2)
-		if err := k.Likes.Set(ctx, key, like.Like); err != nil {
+		if err := k.Likes.Set(ctx, key); err != nil {
 			return err
 		}
 	}
 
 	for _, comment := range data.IndexedComments {
 		key := collections.Join3(comment.K1, comment.K2, comment.K3)
-		if err := k.Comments.Set(ctx, key, comment.Comment); err != nil {
+		if err := k.Comments.Set(ctx, key); err != nil {
 			return err
 		}
 	}
@@ -106,12 +112,22 @@ func (k *Keeper) ExportGenesis(ctx context.Context) (*birdFeed.GenesisState, err
 		return nil, err
 	}
 
+	var indexedAuthorTweets []birdFeed.IndexedAuthorTweets
+	if err := k.AuthorTweets.Walk(ctx, nil, func(index collections.Pair[string, string]) (bool, error) {
+		indexedAuthorTweets = append(indexedAuthorTweets, birdFeed.IndexedAuthorTweets{
+			K1: index.K1(),
+			K2: index.K2(),
+		})
+		return false, nil
+	}); err != nil {
+		return nil, err
+	}
+
 	var indexedLikes []birdFeed.IndexedLike
-	if err := k.Likes.Walk(ctx, nil, func(index collections.Pair[string, string], _ bool) (bool, error) {
+	if err := k.Likes.Walk(ctx, nil, func(index collections.Pair[string, string]) (bool, error) {
 		indexedLikes = append(indexedLikes, birdFeed.IndexedLike{
-			K1:   index.K1(),
-			K2:   index.K2(),
-			Like: true,
+			K1: index.K1(),
+			K2: index.K2(),
 		})
 		return false, nil
 	}); err != nil {
@@ -119,12 +135,11 @@ func (k *Keeper) ExportGenesis(ctx context.Context) (*birdFeed.GenesisState, err
 	}
 
 	var indexedComments []birdFeed.IndexedComment
-	if err := k.Comments.Walk(ctx, nil, func(index collections.Triple[string, string, string], _ bool) (bool, error) {
+	if err := k.Comments.Walk(ctx, nil, func(index collections.Triple[string, string, string]) (bool, error) {
 		indexedComments = append(indexedComments, birdFeed.IndexedComment{
-			K1:      index.K1(),
-			K2:      index.K2(),
-			K3:      index.K3(),
-			Comment: true,
+			K1: index.K1(),
+			K2: index.K2(),
+			K3: index.K3(),
 		})
 		return false, nil
 	}); err != nil {
