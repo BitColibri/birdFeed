@@ -4824,6 +4824,7 @@ var (
 	fd_Tweet_likes     protoreflect.FieldDescriptor
 	fd_Tweet_responses protoreflect.FieldDescriptor
 	fd_Tweet_parentId  protoreflect.FieldDescriptor
+	fd_Tweet_id        protoreflect.FieldDescriptor
 )
 
 func init() {
@@ -4836,6 +4837,7 @@ func init() {
 	fd_Tweet_likes = md_Tweet.Fields().ByName("likes")
 	fd_Tweet_responses = md_Tweet.Fields().ByName("responses")
 	fd_Tweet_parentId = md_Tweet.Fields().ByName("parentId")
+	fd_Tweet_id = md_Tweet.Fields().ByName("id")
 }
 
 var _ protoreflect.Message = (*fastReflection_Tweet)(nil)
@@ -4945,6 +4947,12 @@ func (x *fastReflection_Tweet) Range(f func(protoreflect.FieldDescriptor, protor
 			return
 		}
 	}
+	if x.Id != "" {
+		value := protoreflect.ValueOfString(x.Id)
+		if !f(fd_Tweet_id, value) {
+			return
+		}
+	}
 }
 
 // Has reports whether a field is populated.
@@ -4974,6 +4982,8 @@ func (x *fastReflection_Tweet) Has(fd protoreflect.FieldDescriptor) bool {
 		return x.Responses != int64(0)
 	case "bitcolibri.birdFeed.v1.Tweet.parentId":
 		return x.ParentId != ""
+	case "bitcolibri.birdFeed.v1.Tweet.id":
+		return x.Id != ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.Tweet"))
@@ -5004,6 +5014,8 @@ func (x *fastReflection_Tweet) Clear(fd protoreflect.FieldDescriptor) {
 		x.Responses = int64(0)
 	case "bitcolibri.birdFeed.v1.Tweet.parentId":
 		x.ParentId = ""
+	case "bitcolibri.birdFeed.v1.Tweet.id":
+		x.Id = ""
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.Tweet"))
@@ -5044,6 +5056,9 @@ func (x *fastReflection_Tweet) Get(descriptor protoreflect.FieldDescriptor) prot
 	case "bitcolibri.birdFeed.v1.Tweet.parentId":
 		value := x.ParentId
 		return protoreflect.ValueOfString(value)
+	case "bitcolibri.birdFeed.v1.Tweet.id":
+		value := x.Id
+		return protoreflect.ValueOfString(value)
 	default:
 		if descriptor.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.Tweet"))
@@ -5080,6 +5095,8 @@ func (x *fastReflection_Tweet) Set(fd protoreflect.FieldDescriptor, value protor
 		x.Responses = value.Int()
 	case "bitcolibri.birdFeed.v1.Tweet.parentId":
 		x.ParentId = value.Interface().(string)
+	case "bitcolibri.birdFeed.v1.Tweet.id":
+		x.Id = value.Interface().(string)
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.Tweet"))
@@ -5118,6 +5135,8 @@ func (x *fastReflection_Tweet) Mutable(fd protoreflect.FieldDescriptor) protoref
 		panic(fmt.Errorf("field responses of message bitcolibri.birdFeed.v1.Tweet is not mutable"))
 	case "bitcolibri.birdFeed.v1.Tweet.parentId":
 		panic(fmt.Errorf("field parentId of message bitcolibri.birdFeed.v1.Tweet is not mutable"))
+	case "bitcolibri.birdFeed.v1.Tweet.id":
+		panic(fmt.Errorf("field id of message bitcolibri.birdFeed.v1.Tweet is not mutable"))
 	default:
 		if fd.IsExtension() {
 			panic(fmt.Errorf("proto3 declared messages do not support extensions: bitcolibri.birdFeed.v1.Tweet"))
@@ -5145,6 +5164,8 @@ func (x *fastReflection_Tweet) NewField(fd protoreflect.FieldDescriptor) protore
 	case "bitcolibri.birdFeed.v1.Tweet.responses":
 		return protoreflect.ValueOfInt64(int64(0))
 	case "bitcolibri.birdFeed.v1.Tweet.parentId":
+		return protoreflect.ValueOfString("")
+	case "bitcolibri.birdFeed.v1.Tweet.id":
 		return protoreflect.ValueOfString("")
 	default:
 		if fd.IsExtension() {
@@ -5242,6 +5263,10 @@ func (x *fastReflection_Tweet) ProtoMethods() *protoiface.Methods {
 		if l > 0 {
 			n += 1 + l + runtime.Sov(uint64(l))
 		}
+		l = len(x.Id)
+		if l > 0 {
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
 		if x.unknownFields != nil {
 			n += len(x.unknownFields)
 		}
@@ -5270,6 +5295,13 @@ func (x *fastReflection_Tweet) ProtoMethods() *protoiface.Methods {
 		if x.unknownFields != nil {
 			i -= len(x.unknownFields)
 			copy(dAtA[i:], x.unknownFields)
+		}
+		if len(x.Id) > 0 {
+			i -= len(x.Id)
+			copy(dAtA[i:], x.Id)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(x.Id)))
+			i--
+			dAtA[i] = 0x42
 		}
 		if len(x.ParentId) > 0 {
 			i -= len(x.ParentId)
@@ -5549,6 +5581,38 @@ func (x *fastReflection_Tweet) ProtoMethods() *protoiface.Methods {
 					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
 				}
 				x.ParentId = string(dAtA[iNdEx:postIndex])
+				iNdEx = postIndex
+			case 8:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				var stringLen uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					stringLen |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				intStringLen := int(stringLen)
+				if intStringLen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + intStringLen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Id = string(dAtA[iNdEx:postIndex])
 				iNdEx = postIndex
 			default:
 				iNdEx = preIndex
@@ -6640,6 +6704,7 @@ type Tweet struct {
 	Likes     int64    `protobuf:"varint,5,opt,name=likes,proto3" json:"likes,omitempty"`
 	Responses int64    `protobuf:"varint,6,opt,name=responses,proto3" json:"responses,omitempty"`
 	ParentId  string   `protobuf:"bytes,7,opt,name=parentId,proto3" json:"parentId,omitempty"`
+	Id        string   `protobuf:"bytes,8,opt,name=id,proto3" json:"id,omitempty"`
 }
 
 func (x *Tweet) Reset() {
@@ -6707,6 +6772,13 @@ func (x *Tweet) GetResponses() int64 {
 func (x *Tweet) GetParentId() string {
 	if x != nil {
 		return x.ParentId
+	}
+	return ""
+}
+
+func (x *Tweet) GetId() string {
+	if x != nil {
+		return x.Id
 	}
 	return ""
 }
@@ -6855,7 +6927,7 @@ var file_bitcolibri_birdFeed_v1_types_proto_rawDesc = []byte{
 	0x64, 0x65, 0x78, 0x65, 0x64, 0x43, 0x6f, 0x6d, 0x6d, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02,
 	0x6b, 0x31, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x6b, 0x31, 0x12, 0x0e, 0x0a, 0x02,
 	0x6b, 0x32, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x6b, 0x32, 0x12, 0x0e, 0x0a, 0x02,
-	0x6b, 0x33, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x6b, 0x33, 0x22, 0xc3, 0x01, 0x0a,
+	0x6b, 0x33, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x6b, 0x33, 0x22, 0xd3, 0x01, 0x0a,
 	0x05, 0x54, 0x77, 0x65, 0x65, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72,
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x12, 0x18,
 	0x0a, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52,
@@ -6868,7 +6940,8 @@ var file_bitcolibri_birdFeed_v1_types_proto_rawDesc = []byte{
 	0x6f, 0x6e, 0x73, 0x65, 0x73, 0x18, 0x06, 0x20, 0x01, 0x28, 0x03, 0x52, 0x09, 0x72, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x73, 0x12, 0x1a, 0x0a, 0x08, 0x70, 0x61, 0x72, 0x65, 0x6e, 0x74,
 	0x49, 0x64, 0x18, 0x07, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x72, 0x65, 0x6e, 0x74,
-	0x49, 0x64, 0x22, 0x88, 0x01, 0x0a, 0x04, 0x55, 0x73, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x61,
+	0x49, 0x64, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x08, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02,
+	0x69, 0x64, 0x22, 0x88, 0x01, 0x0a, 0x04, 0x55, 0x73, 0x65, 0x72, 0x12, 0x18, 0x0a, 0x07, 0x61,
 	0x64, 0x64, 0x72, 0x65, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x61, 0x64,
 	0x64, 0x72, 0x65, 0x73, 0x73, 0x12, 0x14, 0x0a, 0x05, 0x61, 0x6c, 0x69, 0x61, 0x73, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x61, 0x6c, 0x69, 0x61, 0x73, 0x12, 0x18, 0x0a, 0x07, 0x70,
